@@ -5787,15 +5787,37 @@ async def broadcast_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Admin command to message ALL users."""
     if update.effective_user.id not in ADMIN_IDS:
         return await update.message.reply_text("❌ You are not authorized to use this command.")
-    
+
     if update.message.reply_to_message:
         target_msg = update.message.reply_to_message
         is_reply = True
+        message_text = None
     else:
-        raw_text_html = update.message.text_html 
-        message_text = re.sub(r"^/broadcast(@\w+)?\s*", "", raw_text_html, flags=re.IGNORECASE)
-        if not message_text.strip():
-            return await update.message.reply_text("Usage: `/broadcast Your text here`", parse_mode="HTML")
+        prefix = r"^/broadcast(@\w+)?\s*"
+        raw_body = re.sub(prefix, "", update.message.text or "", count=1, flags=re.I).strip()
+
+        if not raw_body:
+            return await update.message.reply_text(
+                "Usage: `/broadcast Your text here`\n\n"
+                "💡 *Tip:* Reply to a formatted message with `/broadcast` for perfect copy.",
+                parse_mode="Markdown",
+            )
+
+        has_html_tags = bool(re.search(
+            r"</?(?:b|strong|i|em|u|s|code|pre|a|tg-spoiler|blockquote)\b",
+            raw_body, re.I
+        ))
+
+        if has_html_tags:
+            message_text = raw_body
+            logger.info("📢 /broadcast → HTML mode (%d chars)", len(message_text))
+        else:
+            message_text = re.sub(
+                prefix, "", update.message.text_html or "", count=1, flags=re.I
+            ).strip()
+            if not message_text:
+                message_text = html.escape(raw_body)
+
         is_reply = False
 
     status_msg = await update.message.reply_text("⏳ Broadcasting to all users...")
@@ -5867,21 +5889,40 @@ async def broadcast_exam_command(update: Update, context: ContextTypes.DEFAULT_T
     """Admin command to message users of a specific exam."""
     if update.effective_user.id not in ADMIN_IDS:
         return await update.message.reply_text("❌ You are not authorized to use this command.")
-    
+
     if len(context.args) < 1:
         return await update.message.reply_text("Usage: `/broadcast_exam SSC`", parse_mode="HTML")
-        
+
     exam_keyword = context.args[0]
-    
+
     if update.message.reply_to_message:
         target_msg = update.message.reply_to_message
         is_reply = True
+        message_text = None
     else:
-        raw_text_html = update.message.text_html
-        pattern = r"^/broadcast_exam(@\w+)?\s*" + re.escape(exam_keyword) + r"\s*"
-        message_text = re.sub(pattern, "", raw_text_html, flags=re.IGNORECASE)
-        if not message_text.strip():
-            return await update.message.reply_text("❌ Please provide a message or reply to a message.", parse_mode="HTML")
+        prefix = r"^/broadcast_exam(@\w+)?\s*" + re.escape(exam_keyword) + r"\s*"
+        raw_body = re.sub(prefix, "", update.message.text or "", count=1, flags=re.I).strip()
+
+        if not raw_body:
+            return await update.message.reply_text(
+                "❌ Please provide a message or reply to a message.", parse_mode="HTML"
+            )
+
+        has_html_tags = bool(re.search(
+            r"</?(?:b|strong|i|em|u|s|code|pre|a|tg-spoiler|blockquote)\b",
+            raw_body, re.I
+        ))
+
+        if has_html_tags:
+            message_text = raw_body
+            logger.info("📢 /broadcast_exam[%s] → HTML mode", exam_keyword)
+        else:
+            message_text = re.sub(
+                prefix, "", update.message.text_html or "", count=1, flags=re.I
+            ).strip()
+            if not message_text:
+                message_text = html.escape(raw_body)
+
         is_reply = False
 
     status_msg = await update.message.reply_text(f"⏳ Finding users for '{exam_keyword}'...")
@@ -5955,26 +5996,34 @@ async def broadcast_exam_command(update: Update, context: ContextTypes.DEFAULT_T
 
 async def send_to_user_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Admin: /send <chat_id> [topic_id] <message>
-    OR reply to any message with /send <chat_id> [topic_id]
+    OR reply to ANY message with /send <chat_id> [topic_id]
 
-    chat_id can be:
-      • a user ID         → 1001653060
-      • a username        → @kranthikumargoudEEE
-      • a numeric group   → -1001234567890
-    topic_id (optional):
-      • numeric message_thread_id for forum topics
+    3 modes auto-detected:
+    1. Reply mode → copy_message (byte-perfect copy)
+    2. HTML mode  → pasted <b>/<i>/<a>/etc. rendered as real HTML
+    3. Plain mode → message.text_html (preserves client bold/italic + newlines)
     """
     if update.effective_user.id not in ADMIN_IDS:
         return await update.message.reply_text("❌ You are not authorized to use this command.")
 
     if not context.args:
         return await update.message.reply_text(
-            "Usage:\n"
-            "• `/send <chat_id> [topic_id] <message>` → text\n"
-            "• Reply to any file with `/send <chat_id> [topic_id]` → copies that file\n"
-            "`chat_id` may be user ID, `@username`, or `-100...` group ID.\n"
-            "`topic_id` is optional — use it for forum topics.",
-            parse_mode="Markdown"
+            "📤 *How to use `/send`*\n\n"
+            "🔹 *Reply Mode (BEST — perfect copy)*\n"
+            "  Format your message anywhere → forward to the bot\n"
+            "  → reply to it with: `/send <chat_id> [topic_id]`\n"
+            "  → every entity, emoji, link preserved by Telegram\n\n"
+            "🔹 *HTML Mode (paste raw tags)*\n"
+            "  `/send <chat_id> [topic_id] <b>Bold</b> <i>Italic</i>`\n"
+            "  → auto-detected when your text contains `<b>`, `<i>`, `<a>`, etc.\n"
+            "  → line breaks + blank lines preserved\n\n"
+            "🔹 *Plain Mode*\n"
+            "  `/send <chat_id> [topic_id] Your message here`\n"
+            "  → use Telegram's bold/italic buttons for formatting\n"
+            "  → newlines preserved\n\n"
+            "💡 `chat_id` = user ID, `@username`, or `-100...` group ID\n"
+            "💡 `topic_id` = optional (forum topics only)",
+            parse_mode="Markdown",
         )
 
     # ---- Parse chat_id ----
@@ -5982,19 +6031,19 @@ async def send_to_user_command(update: Update, context: ContextTypes.DEFAULT_TYP
     try:
         target_chat = int(raw_chat)
     except ValueError:
-        target_chat = raw_chat   # username like @channel
+        target_chat = raw_chat
 
     # ---- Parse optional topic_id ----
     message_thread_id = None
-    text_start_index = 1
     if len(context.args) > 1:
         try:
             message_thread_id = int(context.args[1])
-            text_start_index = 2
         except ValueError:
             pass   # second arg is part of the text, not a topic
 
-    # ---- Reply mode: copy ANY message type ----
+    # =================================================================
+    # MODE 1 — Reply mode (perfect copy via Telegram)
+    # =================================================================
     if update.message.reply_to_message:
         try:
             kwargs = dict(
@@ -6013,15 +6062,48 @@ async def send_to_user_command(update: Update, context: ContextTypes.DEFAULT_TYP
             await update.message.reply_text(f"❌ Failed: {e}")
         return
 
-    # ---- Text mode ----
-    message_text = " ".join(context.args[text_start_index:]).strip()
-    if not message_text:
-        return await update.message.reply_text("❌ No message text provided.")
+    # =================================================================
+    # MODE 2 / 3 — Inline text
+    # =================================================================
+    prefix_pattern = (
+        rf"^/send(?:@\w+)?\s+{re.escape(str(raw_chat))}"
+        + (rf"\s+{message_thread_id}" if message_thread_id is not None else "")
+        + r"\s*"
+    )
+
+    # Pull from raw .text first (preserves literal HTML tags, emojis, newlines)
+    raw_body = re.sub(prefix_pattern, "", update.message.text or "", count=1, flags=re.I).strip()
+
+    if not raw_body:
+        return await update.message.reply_text(
+            "❌ No message text provided.\n\n"
+            "💡 **Best way:** format your message anywhere, forward it to the bot, "
+            "then reply to it with `/send <chat_id>`.",
+            parse_mode="Markdown",
+        )
+
+    # Auto-detect pasted HTML tags
+    has_html_tags = bool(re.search(
+        r"</?(?:b|strong|i|em|u|s|code|pre|a|tg-spoiler|blockquote)\b",
+        raw_body, re.I
+    ))
+
+    if has_html_tags:
+        # User pasted raw HTML — trust it, send as-is
+        html_text = raw_body
+        logger.info("📤 /send → HTML mode (%d chars, tags detected)", len(html_text))
+    else:
+        # No pasted tags — pull text_html to preserve client buttons + newlines
+        html_text = re.sub(
+            prefix_pattern, "", update.message.text_html or "", count=1, flags=re.I
+        ).strip()
+        if not html_text:
+            html_text = html.escape(raw_body)
 
     try:
         kwargs = dict(
             chat_id=target_chat,
-            text=message_text,
+            text=html_text,
             parse_mode="HTML",
         )
         if message_thread_id is not None:
