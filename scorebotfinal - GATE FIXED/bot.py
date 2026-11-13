@@ -262,6 +262,18 @@ def _img_cache_save(url: str, data_uri: str):
         logger.warning("Image cache write failed: %s", e)    
 
 
+
+
+# ==============================================================================
+# 🆕 HELPER: NORMALIZE UID (fuzzy matching for GATE keys)
+# ==============================================================================
+def _normalize_uid(uid: str) -> str:
+    """Lowercase + strip every non-alphanumeric char.
+    Makes 'EE_ELEC_02-02-2025_2-30-PM' == 'EE_ELEC_02_02_2025_2_30_PM' == 'eeelec02022025230pm'."""
+    return re.sub(r"[^a-z0-9]", "", (uid or "").lower())
+
+
+
 # ==============================================================================
 # 🆕 HELPER: MASTER PATHS
 # ==============================================================================
@@ -325,9 +337,16 @@ async def notify_genuine_error(context, failure_type, user_id, user_full_name, u
     for target_chat, thread_id in _get_all_copy_targets(exclude_user_id=user_id):
         try:
             kwargs = dict(chat_id=target_chat, text=admin_text, parse_mode="HTML")
-            if thread_id is not None: kwargs["message_thread_id"] = thread_id
+            if thread_id is not None:
+                kwargs["message_thread_id"] = thread_id
             await context.bot.send_message(**kwargs)
-        except Exception: pass
+        except Exception:
+            # 🆕 Channel is down → queue this alert for the retry loop
+            await queue_failed_delivery(
+                context, target_chat, "send_message", "(alert)",
+                admin_text, "HTML", thread_id,
+                user_id, user_full_name, source_url,
+            )
 
     if not user_message:
         user_message = (
@@ -342,9 +361,41 @@ async def notify_genuine_error(context, failure_type, user_id, user_full_name, u
 
 
 async def queue_failed_delivery(context, chat_id, action, file_path, caption, parse_mode="HTML", thread_id=None, user_id="N/A", user_name="N/A", source_url="N/A"):
-    """Saves a failed delivery to the database and notifies the Admin Channel individually."""
-    
-    # 1. Notify Admin Channel immediately (Individual Message)
+    """Queue a failed delivery with dedup + exponential backoff scheduling."""
+
+    # 1. Dedup: same (chat, file, action) queued within last hour → skip
+    async with aiosqlite.connect(DB_FILE) as db:
+        async with db.execute(
+            "SELECT id FROM pending_deliveries "
+            "WHERE chat_id=? AND file_path=? AND action=? "
+            "AND created_at > datetime('now','-1 hour') LIMIT 1",
+            (str(chat_id), file_path, action),
+        ) as c:
+            existing = await c.fetchone()
+        if existing:
+            logger.info("⏭️ Duplicate queue entry skipped: %s", os.path.basename(file_path))
+            return
+
+        # 2. Insert with first retry scheduled 2 minutes out
+        await db.execute(
+            """INSERT INTO pending_deliveries
+               (chat_id, action, file_path, caption, parse_mode, thread_id,
+                user_id, user_name, source_url, retry_count, next_retry_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, datetime('now','+2 minutes'))""",
+            (str(chat_id), action, file_path, caption, parse_mode, thread_id,
+             str(user_id), user_name, source_url),
+        )
+        # 3. Audit log — permanent record
+        await db.execute(
+            "INSERT INTO failure_reports (event_type, user_id, user_name, source_url, file_path, error) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("queued", str(user_id), user_name, source_url, os.path.basename(file_path), None),
+        )
+        await db.commit()
+
+    logger.info("📥 Queued failed delivery for %s: %s %s", chat_id, action, file_path)
+
+    # 4. Notify log channels once
     admin_msg = (
         f"⚠️ <b>DELIVERY FAILED & QUEUED</b>\n"
         f"━━━━━━━━━━━━━━━━━━━━\n"
@@ -353,121 +404,301 @@ async def queue_failed_delivery(context, chat_id, action, file_path, caption, pa
         f"📂 <b>Action:</b> {action}\n"
         f"📄 <b>File:</b> {os.path.basename(file_path)}\n"
         f"━━━━━━━━━━━━━━━━━━━━\n"
-        f"<i>Bot will retry automatically.</i>"
+        f"<i>First retry in 2 min · backs off to 6h cap.</i>"
     )
     for target_chat, topic_id in _get_all_copy_targets():
         try:
             kwargs = dict(chat_id=target_chat, text=admin_msg, parse_mode="HTML")
-            if topic_id is not None: kwargs["message_thread_id"] = topic_id
+            if topic_id is not None:
+                kwargs["message_thread_id"] = topic_id
             await context.bot.send_message(**kwargs)
-            await asyncio.sleep(0.25) # 🌟 0.25s delay to prevent rate limits
-        except Exception: 
-            pass # If network is totally dead, this fails silently
+            await asyncio.sleep(0.25)
+        except Exception:
+            pass  # bot.log still records it
 
-    # 2. Save to Database (WITH the new details)
+
+async def _report_recovery(app, user_id, user_name, source_url, file_path):
+    """Deliver a 'recovered' notice to log channels + audit table."""
     async with aiosqlite.connect(DB_FILE) as db:
-        await db.execute("""
-            INSERT INTO pending_deliveries (chat_id, action, file_path, caption, parse_mode, thread_id, user_id, user_name, source_url)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-        """, (str(chat_id), action, file_path, caption, parse_mode, thread_id, str(user_id), user_name, source_url))
+        await db.execute(
+            "INSERT INTO failure_reports (event_type, user_id, user_name, source_url, file_path, error) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("recovered", str(user_id), user_name, source_url, os.path.basename(file_path), None),
+        )
         await db.commit()
-    logger.info(f"📥 Queued failed delivery for {chat_id}: {action} {file_path}")
+
+    text = (
+        f"✅ <b>RECOVERY SUCCESS</b>\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"👤 <b>User:</b> {html.escape(str(user_name))} (ID: <code>{user_id}</code>)\n"
+        f"🔗 <b>Link:</b> <code>{html.escape(str(source_url))}</code>\n"
+        f"📄 <b>File:</b> {os.path.basename(file_path)}\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"<i>Delivered successfully after network restored.</i>"
+    )
+    for target_chat, topic_id in _get_all_copy_targets():
+        try:
+            k = dict(chat_id=target_chat, text=text, parse_mode="HTML")
+            if topic_id is not None:
+                k["message_thread_id"] = topic_id
+            await app.bot.send_message(**k)
+            await asyncio.sleep(0.25)
+        except Exception:
+            pass
+
+
+async def _report_permanent_failure(app, user_id, user_name, source_url, file_path, error=None):
+    """Deliver a 'permanent failure' notice to log channels + audit table."""
+    async with aiosqlite.connect(DB_FILE) as db:
+        await db.execute(
+            "INSERT INTO failure_reports (event_type, user_id, user_name, source_url, file_path, error) "
+            "VALUES (?, ?, ?, ?, ?, ?)",
+            ("dropped", str(user_id), user_name, source_url, os.path.basename(file_path),
+             str(error) if error else "file missing on disk"),
+        )
+        await db.commit()
+
+    text = (
+        f"❌ <b>DELIVERY PERMANENTLY FAILED</b>\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"👤 <b>User:</b> {html.escape(str(user_name))} (ID: <code>{user_id}</code>)\n"
+        f"🔗 <b>Link:</b> <code>{html.escape(str(source_url))}</code>\n"
+        f"📄 <b>File:</b> {os.path.basename(file_path)}\n"
+        f"💥 <b>Reason:</b> {html.escape(str(error or 'file missing on disk'))[:200]}\n"
+        f"━━━━━━━━━━━━━━━━━━━━\n"
+        f"<i>Row removed from queue. Resubmit the link if needed.</i>"
+    )
+    for target_chat, topic_id in _get_all_copy_targets():
+        try:
+            k = dict(chat_id=target_chat, text=text, parse_mode="HTML")
+            if topic_id is not None:
+                k["message_thread_id"] = topic_id
+            await app.bot.send_message(**k)
+            await asyncio.sleep(0.25)
+        except Exception:
+            pass
 
 
 async def retry_failed_deliveries(app):
-    """Background task that checks the queue every 5 minutes and retries individually."""
+    """Retry queue with per-row exponential backoff + circuit breaker.
+
+    Tick every 60s. Only pick rows whose next_retry_at has arrived.
+    Backoff: 2m → 8m → 32m → 2h → 6h (cap).
+    Circuit breaker: after 5 consecutive network failures, pause 5 min.
+    """
+    _consecutive_failures = 0
+    _circuit_open_until = 0
+
     while True:
-        await asyncio.sleep(300)  # Wait 5 minutes
+        await asyncio.sleep(60)
+
+        # Circuit breaker: if open, skip this tick
+        if time.time() < _circuit_open_until:
+            continue
+
         try:
             async with aiosqlite.connect(DB_FILE) as db:
-                # Fetch all pending (including user info and raw link)
-                async with db.execute("SELECT id, chat_id, action, file_path, caption, parse_mode, thread_id, user_id, user_name, source_url FROM pending_deliveries LIMIT 100") as c:
+                async with db.execute(
+                    """SELECT id, chat_id, action, file_path, caption, parse_mode,
+                              thread_id, user_id, user_name, source_url, retry_count
+                       FROM pending_deliveries
+                       WHERE next_retry_at IS NULL OR next_retry_at <= datetime('now')
+                       ORDER BY next_retry_at ASC LIMIT 20"""
+                ) as c:
                     rows = await c.fetchall()
-            
+
             if not rows:
+                _consecutive_failures = 0
                 continue
 
+            any_success = False
+
             for row in rows:
-                id, chat_id_str, action, file_path, caption, parse_mode, thread_id, user_id, user_name, source_url = row
-                
+                (rid, chat_id_str, action, file_path, caption, parse_mode,
+                 thread_id, user_id, user_name, source_url, retry_count) = row
+
                 try:
                     chat_id = int(chat_id_str)
-                except ValueError:
+                except (ValueError, TypeError):
                     chat_id = chat_id_str
-                    
+
+                # File gone → permanent failure (only for file-based actions)
+                # send_message has no file — its "file_path" is a placeholder
+                if action in ("send_photo", "send_document") and not os.path.exists(file_path):
+                    logger.warning("File missing for retry — dropping: %s", file_path)
+                    await _report_permanent_failure(
+                        app, user_id, user_name, source_url, file_path,
+                        "file missing on disk"
+                    )
+                    async with aiosqlite.connect(DB_FILE) as db:
+                        await db.execute("DELETE FROM pending_deliveries WHERE id=?", (rid,))
+                        await db.commit()
+                    continue
+
                 try:
                     kwargs = dict(chat_id=chat_id, caption=caption, parse_mode=parse_mode)
                     if thread_id is not None:
                         kwargs["message_thread_id"] = thread_id
 
-                    # 🌟 FIX: If file is gone, notify admin ONCE then drop
-                    if not os.path.exists(file_path):
-                        logger.warning(f"File missing for retry — dropping: {file_path}")
-                        orphan_msg = (
-                            f"❌ <b>DELIVERY PERMANENTLY FAILED</b>\n"
-                            f"━━━━━━━━━━━━━━━━━━━━\n"
-                            f"👤 <b>User:</b> {html.escape(str(user_name))} (ID: <code>{user_id}</code>)\n"
-                            f"🔗 <b>Link:</b> <code>{html.escape(str(source_url))}</code>\n"
-                            f"📄 <b>File missing on disk:</b> {os.path.basename(file_path)}\n"
-                            f"━━━━━━━━━━━━━━━━━━━━\n"
-                            f"<i>Cannot retry — resubmit the link if the user still needs this file.</i>"
-                        )
-                        for target_chat, topic_id in _get_all_copy_targets():
-                            try:
-                                k = dict(chat_id=target_chat, text=orphan_msg, parse_mode="HTML")
-                                if topic_id is not None:
-                                    k["message_thread_id"] = topic_id
-                                await app.bot.send_message(**k)
-                                await asyncio.sleep(0.25)
-                            except Exception:
-                                pass
-                        async with aiosqlite.connect(DB_FILE) as db:
-                            await db.execute("DELETE FROM pending_deliveries WHERE id=?", (id,))
-                            await db.commit()
-                        continue
-
-                    # File exists → attempt send
                     if action == "send_photo":
-                        with open(file_path, "rb") as photo:
-                            kwargs["photo"] = photo
+                        with open(file_path, "rb") as f:
+                            kwargs["photo"] = f
                             await app.bot.send_photo(**kwargs)
                     elif action == "send_document":
-                        with open(file_path, "rb") as doc:
-                            kwargs["document"] = doc
+                        with open(file_path, "rb") as f:
+                            kwargs["document"] = f
                             await app.bot.send_document(**kwargs)
+                    elif action == "send_message":
+                        kwargs.pop("caption", None)
+                        await app.bot.send_message(text=caption, **kwargs)
+                    else:
+                        raise ValueError(f"Unknown action: {action}")
 
-                    # Success → delete from queue
+                    # Success → delete + report
                     async with aiosqlite.connect(DB_FILE) as db:
-                        await db.execute("DELETE FROM pending_deliveries WHERE id=?", (id,))
+                        await db.execute("DELETE FROM pending_deliveries WHERE id=?", (rid,))
                         await db.commit()
-                    
-                    # 3. Send Individual Recovery Message to Admin Channel
-                    recovery_msg = (
-                        f"✅ <b>RECOVERY SUCCESS</b>\n"
-                        f"━━━━━━━━━━━━━━━━━━━━\n"
-                        f"👤 <b>User:</b> {html.escape(str(user_name))} (ID: <code>{user_id}</code>)\n"
-                        f"🔗 <b>Link:</b> <code>{html.escape(str(source_url))}</code>\n"
-                        f"📄 <b>File:</b> {os.path.basename(file_path)}\n"
-                        f"━━━━━━━━━━━━━━━━━━━━\n"
-                        f"<i>Delivered successfully after network restored.</i>"
-                    )
-                    
-                    for target_chat, topic_id in _get_all_copy_targets():
-                        try:
-                            k = dict(chat_id=target_chat, text=recovery_msg, parse_mode="HTML")
-                            if topic_id is not None: 
-                                k["message_thread_id"] = topic_id
-                            await app.bot.send_message(**k)
-                            # 🌟 0.25 second delay to prevent Telegram rate limits
-                            await asyncio.sleep(0.25) 
-                        except Exception: 
-                            pass
-                        
+
+                    any_success = True
+                    _consecutive_failures = 0
+                    await _report_recovery(app, user_id, user_name, source_url, file_path)
+
                 except Exception as e:
-                    logger.warning(f"Retry failed for {chat_id}: {e}")
-                    
+                    # Failure → exponential backoff
+                    _consecutive_failures += 1
+                    backoff_seconds = min(3600 * 6, 120 * (4 ** min(retry_count, 6)))
+                    # 2m → 8m → 32m → 2h 8m → 6h (capped)
+
+                    async with aiosqlite.connect(DB_FILE) as db:
+                        await db.execute(
+                            """UPDATE pending_deliveries
+                               SET retry_count = retry_count + 1,
+                                   last_attempt_at = datetime('now'),
+                                   next_retry_at = datetime('now', ?),
+                                   last_error = ?
+                               WHERE id = ?""",
+                            (f"+{backoff_seconds} seconds", str(e)[:200], rid),
+                        )
+                        await db.commit()
+
+                    logger.warning(
+                        "Retry failed (row #%s, attempt %s, next in %ss): %s",
+                        rid, retry_count + 1, backoff_seconds, e
+                    )
+
+            # Circuit breaker: if everything failed, pause
+            if not any_success and _consecutive_failures >= 5:
+                _circuit_open_until = time.time() + 300
+                logger.warning(
+                    "🔴 Circuit OPEN — pausing all retries for 5 min "
+                    "(consecutive failures: %s)", _consecutive_failures
+                )
+                try:
+                    for target_chat, topic_id in _get_all_copy_targets():
+                        kwargs = dict(
+                            chat_id=target_chat,
+                            text=(
+                                f"🔴 <b>RETRY CIRCUIT OPEN</b>\n"
+                                f"━━━━━━━━━━━━━━━━━━━━\n"
+                                f"{_consecutive_failures} consecutive network failures.\n"
+                                f"All retries paused for 5 minutes.\n\n"
+                                f"<i>If DNS is down on the bot host, fix that first.</i>"
+                            ),
+                            parse_mode="HTML",
+                        )
+                        if topic_id is not None:
+                            kwargs["message_thread_id"] = topic_id
+                        await app.bot.send_message(**kwargs)
+                except Exception:
+                    pass
+
         except Exception as e:
             logger.error(f"Retry loop error: {e}")
+
+
+# ==============================================================================
+# 🆕 CHANGE 5 — Hourly health digest
+# ==============================================================================
+async def hourly_health_digest(app):
+    """Send one health summary per hour: queue depth, DNS status, 1h stats."""
+    while True:
+        await asyncio.sleep(3600)
+        try:
+            # Direct DNS test — cheapest health check available
+            dns_ok = True
+            try:
+                loop = asyncio.get_event_loop()
+                await asyncio.wait_for(
+                    loop.getaddrinfo("api.telegram.org", 443),
+                    timeout=5.0,
+                )
+            except Exception:
+                dns_ok = False
+
+            async with aiosqlite.connect(DB_FILE) as db:
+                async with db.execute("SELECT COUNT(*) FROM pending_deliveries") as c:
+                    pending = (await c.fetchone())[0]
+                async with db.execute(
+                    "SELECT event_type, COUNT(*) FROM failure_reports "
+                    "WHERE created_at > datetime('now','-1 hour') GROUP BY event_type"
+                ) as c:
+                    stats = dict(await c.fetchall())
+
+            badge = "🟢 DNS OK" if dns_ok else "🔴 <b>DNS DOWN</b>"
+            text = (
+                f"📊 <b>Hourly Health — {badge}</b>\n"
+                f"━━━━━━━━━━━━━━━━━━━━\n"
+                f"⏳ Pending retries: <b>{pending}</b>\n"
+                f"✅ Recovered (1h): {stats.get('recovered', 0)}\n"
+                f"📥 Queued (1h): {stats.get('queued', 0)}\n"
+                f"❌ Dropped (1h): {stats.get('dropped', 0)}\n"
+                f"━━━━━━━━━━━━━━━━━━━━\n"
+                f"🕐 {datetime.now().strftime('%d/%m/%Y %H:%M')}"
+            )
+
+            for target_chat, topic_id in _get_all_copy_targets():
+                try:
+                    kwargs = dict(chat_id=target_chat, text=text, parse_mode="HTML")
+                    if topic_id is not None:
+                        kwargs["message_thread_id"] = topic_id
+                    await app.bot.send_message(**kwargs)
+                except Exception:
+                    pass
+        except Exception as e:
+            logger.error("Health digest error: %s", e)
+
+
+# ==============================================================================
+# 🆕 CHANGE 6 — /queue admin command
+# ==============================================================================
+async def queue_status_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.effective_user.id not in ADMIN_IDS:
+        return await update.message.reply_text("❌ Not authorized.")
+
+    async with aiosqlite.connect(DB_FILE) as db:
+        async with db.execute(
+            "SELECT id, chat_id, file_path, retry_count, next_retry_at, last_error "
+            "FROM pending_deliveries ORDER BY next_retry_at ASC LIMIT 20"
+        ) as c:
+            rows = await c.fetchall()
+        async with db.execute("SELECT COUNT(*) FROM pending_deliveries") as c:
+            total = (await c.fetchone())[0]
+
+    if not rows:
+        return await update.message.reply_text("✅ Queue is empty.")
+
+    text = f"📥 <b>Pending Deliveries ({total} total, showing first {len(rows)})</b>\n"
+    text += "━━━━━━━━━━━━━━━━━━━━\n"
+    for rid, chat, path, rc, nxt, err in rows:
+        text += (
+            f"• <b>#{rid}</b> → <code>{chat}</code>\n"
+            f"  📄 <code>{os.path.basename(str(path))[:50]}</code>\n"
+            f"  🔁 Retries: {rc} | ⏰ Next: {nxt or 'now'}\n"
+            f"  💥 {html.escape(str(err or '-'))[:80]}\n"
+        )
+    await update.message.reply_text(text, parse_mode="HTML")
+
+
 
 def cleanup_orphan_files():
     """Delete any .tmp files left from crashed writes on startup."""
@@ -604,6 +835,15 @@ async def periodic_backup():
                 await db.commit()
             # 👆 END NEW 👆
 
+            # 🆕 Purge failure_reports older than 30 days (prevents unbounded growth)
+            async with aiosqlite.connect(DB_FILE) as db:
+                cursor = await db.execute(
+                    "DELETE FROM failure_reports WHERE created_at < datetime('now','-30 days')"
+                )
+                if cursor.rowcount > 0:
+                    logger.info("🧹 Purged %s old failure_reports rows", cursor.rowcount)
+                await db.commit()
+
             if os.path.exists(DB_FILE):
                 ts = datetime.now().strftime("%Y%m%d_%H%M%S")
                 dst = f"backup_hourly_{ts}.db"
@@ -709,6 +949,33 @@ async def init_db():
                 user_id TEXT,
                 user_name TEXT,
                 source_url TEXT,
+                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+
+        # 🆕 Backoff columns (safe upgrade — only adds if missing)
+        cursor = await db.execute("PRAGMA table_info(pending_deliveries)")
+        cols = [row[1] for row in await cursor.fetchall()]
+        for col, ddl in [
+            ("retry_count",     "ALTER TABLE pending_deliveries ADD COLUMN retry_count INTEGER DEFAULT 0"),
+            ("last_attempt_at", "ALTER TABLE pending_deliveries ADD COLUMN last_attempt_at DATETIME"),
+            ("next_retry_at",   "ALTER TABLE pending_deliveries ADD COLUMN next_retry_at DATETIME"),
+            ("last_error",      "ALTER TABLE pending_deliveries ADD COLUMN last_error TEXT"),
+        ]:
+            if col not in cols:
+                await db.execute(ddl)
+                logger.info("✅ Added column pending_deliveries.%s", col)
+
+        # 🆕 Audit table — permanent record of every queue event
+        await db.execute("""
+            CREATE TABLE IF NOT EXISTS failure_reports (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                event_type TEXT,
+                user_id TEXT,
+                user_name TEXT,
+                source_url TEXT,
+                file_path TEXT,
+                error TEXT,
                 created_at DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         """)
@@ -5003,9 +5270,25 @@ async def handle_response(update: Update, context: ContextTypes.DEFAULT_TYPE):
         safe_time = re.sub(r"[^a-zA-Z0-9]", "-", gate_time)
         gate_uid = f"{safe_branch}_{safe_date}_{safe_time}"
 
+        # 1. Exact match first (fast path)
         async with aiosqlite.connect(DB_FILE) as db:
             async with db.execute("SELECT keys_json FROM gate_keys WHERE gate_uid = ?", (gate_uid,)) as c:
                 row = await c.fetchone()
+
+            # 2. 🆕 Fuzzy match fallback — ignores _ vs - vs typos in separators
+            if not row:
+                async with db.execute("SELECT gate_uid, keys_json FROM gate_keys") as c:
+                    all_keys = await c.fetchall()
+
+                target_norm = _normalize_uid(gate_uid)
+                for stored_uid, keys_json in all_keys:
+                    if _normalize_uid(stored_uid) == target_norm:
+                        row = (keys_json,)
+                        logger.info(
+                            "🔑 Fuzzy-matched GATE key: '%s' → '%s'",
+                            gate_uid, stored_uid
+                        )
+                        break
         
         if not row:
             # First time for this specific shift! Ask for PDFs.
@@ -5680,7 +5963,10 @@ async def handle_response(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await status_msg.delete()
             except Exception:
                 pass
-            logger.info("✅ Test HTML sent successfully: %s", test_file_path)
+            if sent_to_user:
+                logger.info("✅ Test HTML sent successfully: %s", test_file_path)
+            else:
+                logger.warning("📥 Test HTML queued for retry (network down): %s", test_file_path)
 
         except Exception as e:
             logger.error("Mock test failed: %s", e, exc_info=True)
@@ -6244,6 +6530,20 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "```\n/sendlogs\n```\n"
             "• Uploads `bot.log` to every copy target\n\n"
 
+            "*9. `/queue` — see pending retry queue*\n"
+            "```\n/queue\n```\n"
+            "• Lists every file waiting in the retry queue\n"
+            "• Per-row: `chat_id`, filename, retry count, next attempt, last error\n"
+            "• If empty → everything has been delivered ✅\n\n"
+
+            "*🔁 Retry System (automatic — no action needed):*\n"
+            "• Failed deliveries saved to DB and retried on their own\n"
+            "• Backoff per row: *2min → 8min → 32min → 2h → 6h (cap)*\n"
+            "• Same file+chat+action queued only *once per hour* (dedup)\n"
+            "• Circuit breaker: *5 consecutive failures → pause 5 min* (stops DNS-timeout spam)\n"
+            "• Every event logged to `failure_reports` table forever\n"
+            "• Hourly health digest auto-sent → shows **DNS status** + queue depth\n\n"
+
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
             "⚙️ *AUTO COPY (silent — users never see it)*\n"
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
@@ -6256,7 +6556,8 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"• Rate limit: {MAX_SUBMISSIONS_PER_HOUR}/hour\n"
             f"• Duplicate window: 10 min\n"
             f"• Copy channels: {len(ADMIN_COPY_CHAT_IDS)}\n"
-            f"• Copy targets: {', '.join(ADMIN_COPY_CHAT_IDS) if ADMIN_COPY_CHAT_IDS else 'None'}\n\n"
+            f"• Copy targets: {', '.join(ADMIN_COPY_CHAT_IDS) if ADMIN_COPY_CHAT_IDS else 'None'}\n"
+            f"• Queue depth: `/queue` for details\n\n"
         )
 
         # Handle the dynamic admin list if it's short
@@ -6598,15 +6899,15 @@ async def _on_startup(app):
     logger.info(f"Loaded {len(ADMIN_IDS)} active admins.")
     await prime_private_channels(app)
 
-    # 🆕 Robust task creation (works on all PTB v20.x builds)
-    # 🆕 Robust task creation — use asyncio directly to avoid PTBUserWarning
+    # 🆕 Background tasks (backup, retry queue, health digest)
     try:
         asyncio.create_task(periodic_backup())
         asyncio.create_task(retry_failed_deliveries(app))
+        asyncio.create_task(hourly_health_digest(app))
     except Exception as e:
         logger.warning("Could not start background tasks: %s", e)
 
-    logger.info("✅ Background tasks started (hourly backup + retry queue).")
+    logger.info("✅ Background tasks started (backup + retry + health digest).")
 
 
 
@@ -6836,13 +7137,26 @@ def main():
     cleanup_orphan_files()      # 🆕 removes any .tmp from a crashed previous run
     asyncio.run(init_db())
 
-    req = HTTPXRequest(connect_timeout=60.0, read_timeout=60.0)
+    req = HTTPXRequest(
+        connection_pool_size=16,
+        connect_timeout=30.0,
+        read_timeout=60.0,
+        write_timeout=180.0,
+        pool_timeout=20.0,
+    )
+    get_updates_req = HTTPXRequest(
+        connection_pool_size=8,
+        connect_timeout=30.0,
+        read_timeout=60.0,
+        pool_timeout=20.0,
+    )
     app = (
         ApplicationBuilder()
         .token(BOT_TOKEN)
         .request(req)
+        .get_updates_request(get_updates_req)
         .concurrent_updates(True)
-        .post_init(_on_startup)              # ✅ primes channels + starts backup
+        .post_init(_on_startup)   # ✅ primes channels + starts backup
         .build()
     )
 
@@ -6857,6 +7171,7 @@ def main():
     app.add_handler(CommandHandler("broadcast_exam", broadcast_exam_command))
     app.add_handler(CommandHandler("send", send_to_user_command))
     app.add_handler(CommandHandler("sendlogs", sendlogs_command))
+    app.add_handler(CommandHandler("queue", queue_status_command))
     app.add_handler(CommandHandler("stats", stats_command))          # 🆕
     app.add_handler(CommandHandler("feedback", feedback_command))    # 🆕
     
@@ -6879,7 +7194,23 @@ def main():
     # Register Error Handler
     async def error_handler(update, context):
         err = context.error
-        if isinstance(err, (NetworkError, TimedOut, RetryAfter, httpx.ConnectError, httpx.ReadTimeout)):
+
+        # Rate limit — sleep, don't drop
+        if isinstance(err, RetryAfter):
+            wait = err.retry_after + 1
+            logger.warning("Rate-limited — sleeping %ss", wait)
+            await asyncio.sleep(wait)
+            return
+
+        # All transient network/httpx errors — swallow + log, don't escalate
+        _transient = (
+            NetworkError, TimedOut,
+            httpx.ConnectError, httpx.ConnectTimeout,
+            httpx.ReadError,    httpx.ReadTimeout,
+            httpx.WriteError,   httpx.WriteTimeout,
+            httpx.PoolTimeout,  httpx.RemoteProtocolError,
+        )
+        if isinstance(err, _transient):
             logger.warning("Transient network error: %s", err)
             return
         logger.exception("Unhandled exception", exc_info=err)
