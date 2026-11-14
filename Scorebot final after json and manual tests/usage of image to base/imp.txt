@@ -1,0 +1,19 @@
+# Add solution image to Q48 (matches original_qno = "48")
+python add_solution_image.py `
+    "master_files/master_json/RRB_ALP_2026_CBT_1/_All/03_11_2026_12_30_PM_-_1_30_PM.json" `
+    48 `
+    "C:\screenshots\q48_solution.png"
+
+# With optional text explanation above the image
+python add_solution_image.py `
+    ".../_1_30_PM.json" `
+    48 `
+    "C:\screenshots\q48_solution.png" `
+    --text "Cancel 3.8²+4.9². Result = 3.8²-4.9² = 14.44-24.01 = -9.57. Option C."
+
+# Match by position (works when original_qno is corrupted)
+python add_solution_image.py `
+    ".../_1_30_PM.json" `
+    48 `
+    "C:\screenshots\q48_solution.png" `
+    --position
