@@ -1,0 +1,946 @@
+=== DIAGNOSTIC INSPECTION REPORT FOR: 6novPC26031y3242189423erhjkhwerewr.pdf ===
+
+🔍 Found 10 target question markers for inspection ([117, 118, 119, 121, 122]).
+
+
+--------------------------------------------------
+📌 QUESTION 117 (Page 78, y=344.5)
+--------------------------------------------------
+  [Page 78 | y=344.5 | x=46.6] [ENG/NUM] Question Number : 117 Question Id : 4410092529346 Question Type : MCQ Option Shuffling : Yes
+  [Page 78 | y=358.6 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 78 | y=372.6 | x=46.6] [ENG/NUM] Study the pie chart carefully and answer the question that follows.
+  [Page 78 | y=384.1 | x=46.6] [ENG/NUM] The pie chart represents the annual expenditure budget distribution of an IT company across five major operational sectors. The total annual budget of the company is ₹15,00,000.
+  [Page 79 | y=28.5 | x=46.3] [IMAGE/CHART width=378, height=333]
+  [Page 79 | y=361.9 | x=289.9] [IMAGE/CHART width=33, height=23]
+  [Page 79 | y=364.6 | x=46.6] [ENG/NUM] If the budget allocated to Software Licensing is reduced by
+  [Page 79 | y=364.6 | x=323.3] [ENG/NUM] and the budget to Marketing & Ads is reduced by 25%, what will be the new ratio of the combined budget of these two sectors to the budget of Employee
+  [Page 79 | y=385.3 | x=46.6] [ENG/NUM] Salaries?
+  [Page 79 | y=410.8 | x=46.6] [ENG/NUM] Options :
+  [Page 79 | y=426.8 | x=47.2] [ENG/NUM] 1.
+  [Page 79 | y=426.8 | x=70.2] [ENG/NUM] 5 : 6
+  [Page 79 | y=443.3 | x=47.2] [ENG/NUM] 2.
+  [Page 79 | y=443.3 | x=70.2] [ENG/NUM] 3 : 4
+  [Page 79 | y=459.9 | x=47.2] [ENG/NUM] 3.
+  [Page 79 | y=459.9 | x=70.2] [ENG/NUM] 2 : 3
+  [Page 79 | y=476.5 | x=47.2] [ENG/NUM] 4.
+  [Page 79 | y=476.5 | x=70.2] [ENG/NUM] 1 : 3
+
+--------------------------------------------------
+📌 QUESTION 117 (Page 79, y=509.0)
+--------------------------------------------------
+  [Page 79 | y=509.0 | x=46.6] [ENG/NUM] Question Number : 117 Question Id : 4410092529346 Question Type : MCQ Option Shuffling : Yes
+  [Page 79 | y=523.0 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 79 | y=536.2 | x=188.0] [TELUGU] జాగ్రత్తగా
+  [Page 79 | y=537.1 | x=46.6] [TELUGU] ఈ
+  [Page 79 | y=537.1 | x=60.3] [TELUGU] క్రింింది
+  [Page 79 | y=537.1 | x=90.0] [TELUGU] పై
+  [Page 79 | y=537.1 | x=104.1] [TELUGU] డయాగ్రాా
+  [Page 79 | y=537.1 | x=142.9] [TELUGU] మును
+  [Page 79 | y=537.1 | x=173.0] [TELUGU] ను
+  [Page 79 | y=537.1 | x=229.7] [TELUGU] అధ్యయనం
+  [Page 79 | y=537.1 | x=287.0] [TELUGU] చేసి
+  [Page 79 | y=537.1 | x=311.0] [TELUGU] ఇవ్వబడిన
+  [Page 79 | y=537.1 | x=362.5] [TELUGU] ప్ర
+  [Page 79 | y=537.1 | x=373.6] [TELUGU] శ్నకు
+  [Page 79 | y=537.1 | x=400.2] [TELUGU] సమాధానం
+  [Page 79 | y=537.1 | x=453.8] [TELUGU] ఇవ్వంండి
+  [Page 79 | y=539.0 | x=85.6] [ENG/NUM] '
+  [Page 79 | y=539.0 | x=100.8] [ENG/NUM] -
+  [Page 79 | y=539.0 | x=171.2] [ENG/NUM] '
+  [Page 79 | y=539.0 | x=305.9] [ENG/NUM] ,
+  [Page 79 | y=539.0 | x=493.0] [ENG/NUM] .
+  [Page 79 | y=549.6 | x=143.6] [TELUGU] వార్షిక
+  [Page 79 | y=549.6 | x=201.0] [TELUGU] బడ్జెట్
+  [Page 79 | y=549.6 | x=634.6] [TELUGU] సూచిస్తుంది
+  [Page 79 | y=549.6 | x=740.5] [TELUGU] మొత్తం
+  [Page 79 | y=549.6 | x=776.2] [TELUGU] వార్షిక
+  [Page 79 | y=549.6 | x=803.2] [TELUGU] బడ్జెట్
+  [Page 79 | y=550.4 | x=46.6] [TELUGU] ఒక
+  [Page 79 | y=550.4 | x=75.4] [TELUGU] కంపెనీ
+  [Page 79 | y=550.4 | x=110.2] [TELUGU] యొక్క
+  [Page 79 | y=550.4 | x=170.6] [TELUGU] వ్యయ
+  [Page 79 | y=550.4 | x=231.8] [TELUGU] ఐదు
+  [Page 79 | y=550.4 | x=256.1] [TELUGU] ప్ర
+  [Page 79 | y=550.4 | x=267.2] [TELUGU] ధాన
+  [Page 79 | y=550.4 | x=289.9] [TELUGU] నిర్వహణ
+  [Page 79 | y=550.4 | x=334.7] [TELUGU] విభాగాల
+  [Page 79 | y=550.4 | x=375.8] [TELUGU] మధ్య
+  [Page 79 | y=550.4 | x=404.0] [TELUGU] ఏ
+  [Page 79 | y=550.4 | x=414.8] [TELUGU] విధంగా
+  [Page 79 | y=550.4 | x=451.5] [TELUGU] పంపిణీ
+  [Page 79 | y=550.4 | x=486.9] [TELUGU] చేయబడిందో
+  [Page 79 | y=550.4 | x=549.7] [TELUGU] ఈ
+  [Page 79 | y=550.4 | x=563.4] [TELUGU] పై
+  [Page 79 | y=550.4 | x=577.5] [TELUGU] డయాగ్రాా
+  [Page 79 | y=550.4 | x=616.2] [TELUGU] ము
+  [Page 79 | y=550.4 | x=693.8] [TELUGU] ఆ
+  [Page 79 | y=550.4 | x=705.7] [TELUGU] కంపెనీ
+  [Page 79 | y=550.4 | x=879.9] [TELUGU] గా
+  [Page 79 | y=550.4 | x=891.7] [TELUGU] ఉంది
+  [Page 79 | y=552.4 | x=60.8] [ENG/NUM] IT
+  [Page 79 | y=552.4 | x=574.1] [ENG/NUM] -
+  [Page 79 | y=552.4 | x=688.7] [ENG/NUM] .
+  [Page 79 | y=552.4 | x=831.5] [ENG/NUM] ₹15,00,000
+  [Page 79 | y=552.4 | x=918.1] [ENG/NUM] .
+  [Page 80 | y=28.5 | x=46.3] [IMAGE/CHART width=378, height=333]
+  [Page 80 | y=361.7 | x=46.6] [TELUGU] అనువాద
+  [Page 80 | y=361.7 | x=95.8] [TELUGU] సూచిక
+  [Page 80 | y=363.7 | x=129.2] [ENG/NUM] :-
+  [Page 80 | y=374.3 | x=292.3] [TELUGU] వార్షిక
+  [Page 80 | y=374.3 | x=319.3] [TELUGU] బడ్జెట్
+  [Page 80 | y=375.1 | x=236.6] [TELUGU] ఐటీ
+  [Page 80 | y=375.1 | x=257.5] [TELUGU] కంపెనీ
+  [Page 80 | y=375.1 | x=350.1] [TELUGU] విభాజనం
+  [Page 80 | y=377.1 | x=46.6] [ENG/NUM] Annual Budget Distribution of IT Company =
+  [Page 80 | y=388.5 | x=194.2] [TELUGU] రీసెర్చ్
+  [Page 80 | y=388.5 | x=238.6] [TELUGU] డెవలప్
+  [Page 80 | y=388.5 | x=276.3] [TELUGU] మెంట్
+  [Page 80 | y=390.4 | x=46.6] [ENG/NUM] Research & Development (R&D) =
+  [Page 80 | y=390.4 | x=225.6] [ENG/NUM] &
+  [Page 80 | y=390.4 | x=306.7] [ENG/NUM] (R&D)
+  [Page 80 | y=401.9 | x=128.8] [TELUGU] మార్కెటింగ్
+  [Page 80 | y=401.9 | x=193.9] [TELUGU] యాడ్స్
+  [Page 80 | y=403.8 | x=46.6] [ENG/NUM] Marketing & Ads =
+  [Page 80 | y=403.8 | x=180.9] [ENG/NUM] &
+  [Page 80 | y=414.4 | x=137.0] [TELUGU] సాఫ్ట్
+  [Page 80 | y=415.3 | x=157.3] [TELUGU] వేర్
+  [Page 80 | y=415.3 | x=176.1] [TELUGU] లైసెన్సింంగ్
+  [Page 80 | y=417.2 | x=46.6] [ENG/NUM] Software Licensing =
+  [Page 80 | y=417.2 | x=157.3] [ENG/NUM] ‌
+  [Page 80 | y=417.2 | x=225.4] [ENG/NUM] ‌
+  [Page 80 | y=428.7 | x=133.6] [TELUGU] ఉద్యోగుల
+  [Page 80 | y=428.7 | x=179.7] [TELUGU] జీతాల
+  [Page 80 | y=430.6 | x=46.6] [ENG/NUM] Employee Salaries =
+  [Page 80 | y=441.2 | x=255.3] [TELUGU] అద్దె
+  [Page 80 | y=442.1 | x=145.2] [TELUGU] మౌలిక
+  [Page 80 | y=442.1 | x=178.1] [TELUGU] సదుపాయాలు
+  [Page 80 | y=444.0 | x=46.6] [ENG/NUM] Infrastructure & Rent =
+  [Page 80 | y=444.0 | x=242.3] [ENG/NUM] &
+  [Page 80 | y=455.6 | x=80.1] [TELUGU] సాఫ్ట్
+  [Page 80 | y=455.6 | x=244.8] [TELUGU] బడ్జెట్
+  [Page 80 | y=455.6 | x=288.0] [IMAGE/CHART width=33, height=23]
+  [Page 80 | y=455.6 | x=323.8] [TELUGU] తగ్గింంచి
+  [Page 80 | y=455.6 | x=503.1] [TELUGU] బడ్జెట్
+  [Page 80 | y=455.6 | x=567.7] [TELUGU] తగ్గింంచినట్లయితే
+  [Page 80 | y=455.6 | x=771.0] [TELUGU] బడ్జెట్
+  [Page 80 | y=456.4 | x=46.6] [TELUGU] ఒకవేళ
+  [Page 80 | y=456.4 | x=100.3] [TELUGU] వేర్
+  [Page 80 | y=456.4 | x=119.2] [TELUGU] లైసెన్సింంగ్
+  [Page 80 | y=456.4 | x=168.5] [TELUGU] కు
+  [Page 80 | y=456.4 | x=182.2] [TELUGU] కేటాయించిన
+  [Page 80 | y=456.4 | x=273.0] [TELUGU] ను
+  [Page 80 | y=456.4 | x=361.4] [TELUGU] మరియు
+  [Page 80 | y=456.4 | x=402.5] [TELUGU] మార్కెటింగ్
+  [Page 80 | y=456.4 | x=467.5] [TELUGU] యాడ్స్
+  [Page 80 | y=456.4 | x=531.4] [TELUGU] ను
+  [Page 80 | y=456.4 | x=647.7] [TELUGU] ఈ
+  [Page 80 | y=456.4 | x=661.4] [TELUGU] రెండు
+  [Page 80 | y=456.4 | x=692.1] [TELUGU] విభాగాల
+  [Page 80 | y=456.4 | x=733.1] [TELUGU] ఉమ్మడి
+  [Page 80 | y=456.4 | x=799.2] [TELUGU] కు
+  [Page 80 | y=456.4 | x=812.9] [TELUGU] మరియు
+  [Page 80 | y=456.4 | x=853.9] [TELUGU] ఉద్యోగుల
+  [Page 80 | y=456.4 | x=900.0] [TELUGU] జీతాల
+  [Page 80 | y=458.3 | x=100.3] [ENG/NUM] ‌
+  [Page 80 | y=458.3 | x=168.5] [ENG/NUM] ‌
+  [Page 80 | y=458.3 | x=273.0] [ENG/NUM] ‌
+  [Page 80 | y=458.3 | x=356.3] [ENG/NUM] ,
+  [Page 80 | y=458.3 | x=454.5] [ENG/NUM] &
+  [Page 80 | y=458.3 | x=531.4] [ENG/NUM] ‌
+  [Page 80 | y=458.3 | x=543.9] [ENG/NUM] 25%
+  [Page 80 | y=458.3 | x=642.6] [ENG/NUM] ,
+  [Page 80 | y=458.3 | x=799.2] [ENG/NUM] ‌
+  [Page 80 | y=478.2 | x=46.6] [TELUGU] బడ్జెట్
+  [Page 80 | y=478.2 | x=170.5] [TELUGU] నిష్పత్తి
+  [Page 80 | y=479.0 | x=74.8] [TELUGU] కు
+  [Page 80 | y=479.0 | x=88.5] [TELUGU] మధ్య
+  [Page 80 | y=479.0 | x=116.7] [TELUGU] గల
+  [Page 80 | y=479.0 | x=135.0] [TELUGU] నూతన
+  [Page 80 | y=479.0 | x=205.8] [TELUGU] ఎంత
+  [Page 80 | y=479.0 | x=233.2] [TELUGU] అవుతుంది
+  [Page 80 | y=481.0 | x=74.8] [ENG/NUM] ‌
+  [Page 80 | y=481.0 | x=282.6] [ENG/NUM] ?
+  [Page 80 | y=495.0 | x=46.6] [ENG/NUM] Options :
+  [Page 80 | y=510.9 | x=47.2] [ENG/NUM] 1.
+  [Page 80 | y=510.9 | x=70.2] [ENG/NUM] 5 : 6
+  [Page 80 | y=527.5 | x=47.2] [ENG/NUM] 2.
+  [Page 80 | y=527.5 | x=70.2] [ENG/NUM] 3 : 4
+  [Page 80 | y=544.1 | x=47.2] [ENG/NUM] 3.
+  [Page 80 | y=544.1 | x=70.2] [ENG/NUM] 2 : 3
+  [Page 80 | y=560.6 | x=47.2] [ENG/NUM] 4.
+  [Page 80 | y=560.6 | x=70.2] [ENG/NUM] 1 : 3
+
+--------------------------------------------------
+📌 QUESTION 118 (Page 81, y=44.9)
+--------------------------------------------------
+  [Page 81 | y=44.9 | x=46.6] [ENG/NUM] Question Number : 118 Question Id : 4410092529348 Question Type : MCQ Option Shuffling : Yes
+  [Page 81 | y=58.9 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 81 | y=73.0 | x=46.6] [ENG/NUM] Study the two pie charts carefully and answer the question that follows.
+  [Page 81 | y=95.9 | x=46.6] [ENG/NUM] A technology corporation has a total workforce of 12,000 employees distributed across five functional departments: Research & Development (R&D), Sales, Operations, Marketing, and Human Resources (HR). The total
+  [Page 81 | y=107.4 | x=46.6] [ENG/NUM] female workforce of the corporation is 5,000 employees.
+  [Page 81 | y=118.9 | x=46.6] [ENG/NUM] The first pie chart shows the percentage distribution of the total workforce across the departments and the second pie chart shows the percentage distribution of the female workforce across the same departments.
+  [Page 81 | y=142.0 | x=46.3] [IMAGE/CHART width=318, height=311]
+  [Page 82 | y=28.5 | x=46.3] [IMAGE/CHART width=318, height=323]
+  [Page 82 | y=363.0 | x=46.6] [ENG/NUM] Match the mathematical expressions or conditions given in
+  [Page 82 | y=363.0 | x=289.6] [ENG/NUM] List I
+  [Page 82 | y=363.0 | x=313.2] [ENG/NUM] with their corresponding exact calculated values given in
+  [Page 82 | y=363.0 | x=550.8] [ENG/NUM] List II
+  [Page 82 | y=363.0 | x=578.3] [ENG/NUM] .
+  [Page 82 | y=377.0 | x=211.6] [ENG/NUM] List I (Expression / Condition)
+  [Page 82 | y=377.0 | x=707.5] [ENG/NUM] List II (Value)
+  [Page 82 | y=391.7 | x=59.1] [ENG/NUM] (P)
+  [Page 82 | y=391.7 | x=72.1] [ENG/NUM] The ratio of the male workforce in the R&D department to the female workforce in the HR department.
+  [Page 82 | y=391.7 | x=717.0] [ENG/NUM] (1) 48 : 11
+  [Page 82 | y=406.4 | x=65.6] [ENG/NUM] (Q)
+  [Page 82 | y=406.4 | x=80.3] [ENG/NUM] The ratio of the total male workforce in Sales to the total female workforce in the R&D department.
+  [Page 82 | y=406.4 | x=722.0] [ENG/NUM] (2) 8 : 3
+  [Page 82 | y=421.0 | x=59.2] [ENG/NUM] (R)
+  [Page 82 | y=421.0 | x=73.4] [ENG/NUM] The ratio of the total workforce in Operations to the total male workforce in the Marketing department.
+  [Page 82 | y=421.0 | x=716.9] [ENG/NUM] (3) 48 : 13
+  [Page 82 | y=435.7 | x=63.3] [ENG/NUM] (S)
+  [Page 82 | y=435.7 | x=75.8] [ENG/NUM] The ratio of the male workforce in the R&D department to the male workforce in the HR department.
+  [Page 82 | y=435.7 | x=722.0] [ENG/NUM] (4) 3 : 1
+  [Page 82 | y=461.2 | x=46.6] [ENG/NUM] Choose the correct matching.
+  [Page 82 | y=475.2 | x=46.6] [ENG/NUM] Options :
+  [Page 82 | y=491.2 | x=47.2] [ENG/NUM] 1.
+  [Page 82 | y=491.2 | x=70.2] [ENG/NUM] P-3, Q-4, R-2, S-1
+  [Page 82 | y=507.7 | x=47.2] [ENG/NUM] 2.
+  [Page 82 | y=507.7 | x=70.2] [ENG/NUM] P-2, Q-1, R-3, S-4
+  [Page 82 | y=524.3 | x=47.2] [ENG/NUM] 3.
+  [Page 82 | y=524.3 | x=70.2] [ENG/NUM] P-2, Q-4, R-3, S-1
+  [Page 82 | y=540.9 | x=47.2] [ENG/NUM] 4.
+  [Page 82 | y=540.9 | x=70.2] [ENG/NUM] P-3, Q-2, R-4, S-1
+
+--------------------------------------------------
+📌 QUESTION 118 (Page 83, y=30.9)
+--------------------------------------------------
+  [Page 83 | y=30.9 | x=46.6] [ENG/NUM] Question Number : 118 Question Id : 4410092529348 Question Type : MCQ Option Shuffling : Yes
+  [Page 83 | y=44.9 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 83 | y=69.6 | x=201.5] [TELUGU] జాగ్రత్తగా
+  [Page 83 | y=70.4 | x=46.6] [TELUGU] ఈ
+  [Page 83 | y=70.4 | x=60.3] [TELUGU] క్రింింది
+  [Page 83 | y=70.4 | x=88.2] [TELUGU] రెండు
+  [Page 83 | y=70.4 | x=118.9] [TELUGU] పై
+  [Page 83 | y=70.4 | x=133.0] [TELUGU] రేఖాచిత్రాా
+  [Page 83 | y=70.4 | x=177.0] [TELUGU] లను
+  [Page 83 | y=70.4 | x=243.1] [TELUGU] అధ్యయనం
+  [Page 83 | y=70.4 | x=300.4] [TELUGU] చేసి
+  [Page 83 | y=70.4 | x=324.4] [TELUGU] ఆ
+  [Page 83 | y=70.4 | x=336.4] [TELUGU] తర్వాత
+  [Page 83 | y=70.4 | x=373.7] [TELUGU] వచ్చే
+  [Page 83 | y=70.4 | x=400.7] [TELUGU] ప్ర
+  [Page 83 | y=70.4 | x=411.7] [TELUGU] శ్నకు
+  [Page 83 | y=70.4 | x=438.3] [TELUGU] సమాధానం
+  [Page 83 | y=70.4 | x=491.9] [TELUGU] ఇవ్వంండి
+  [Page 83 | y=72.3 | x=129.6] [ENG/NUM] -
+  [Page 83 | y=72.3 | x=319.3] [ENG/NUM] ,
+  [Page 83 | y=72.3 | x=531.2] [ENG/NUM] .
+  [Page 83 | y=94.4 | x=106.6] [TELUGU] సంస్థలో
+  [Page 83 | y=94.4 | x=145.8] [TELUGU] మొత్తం
+  [Page 83 | y=94.4 | x=579.2] [TELUGU] విస్తరించి
+  [Page 83 | y=95.3 | x=46.6] [TELUGU] ఒక
+  [Page 83 | y=95.3 | x=63.4] [TELUGU] సాంకేతిక
+  [Page 83 | y=95.3 | x=212.1] [TELUGU] మంది
+  [Page 83 | y=95.3 | x=243.3] [TELUGU] ఉద్యోగులు
+  [Page 83 | y=95.3 | x=293.1] [TELUGU] ఉన్నారు
+  [Page 83 | y=95.3 | x=337.7] [TELUGU] వీరు
+  [Page 83 | y=95.3 | x=359.7] [TELUGU] ఐదు
+  [Page 83 | y=95.3 | x=384.0] [TELUGU] రకాల
+  [Page 83 | y=95.3 | x=412.2] [TELUGU] విధులకు
+  [Page 83 | y=95.3 | x=456.6] [TELUGU] సంబంధించిన
+  [Page 83 | y=95.3 | x=526.2] [TELUGU] విభాగాలలో
+  [Page 83 | y=95.3 | x=623.1] [TELUGU] ఉన్నారు
+  [Page 83 | y=95.3 | x=667.9] [TELUGU] రీసెర్చ్
+  [Page 83 | y=95.3 | x=712.3] [TELUGU] డెవలప్
+  [Page 83 | y=95.3 | x=747.5] [TELUGU] మెంట్
+  [Page 83 | y=95.3 | x=814.4] [TELUGU] సేల్స్
+  [Page 83 | y=95.3 | x=845.9] [TELUGU] ఆపరేషన్స్
+  [Page 83 | y=95.3 | x=899.7] [TELUGU] మార్కెటింగ్
+  [Page 83 | y=97.2 | x=178.9] [ENG/NUM] 12,000
+  [Page 83 | y=97.2 | x=332.6] [ENG/NUM] .
+  [Page 83 | y=97.2 | x=662.6] [ENG/NUM] :
+  [Page 83 | y=97.2 | x=699.3] [ENG/NUM] &
+  [Page 83 | y=97.2 | x=747.5] [ENG/NUM] ‌
+  [Page 83 | y=97.2 | x=777.9] [ENG/NUM] (R&D),
+  [Page 83 | y=97.2 | x=840.8] [ENG/NUM] ,
+  [Page 83 | y=97.2 | x=894.6] [ENG/NUM] ,
+  [Page 83 | y=97.2 | x=951.8] [ENG/NUM] ,
+  [Page 83 | y=107.8 | x=216.1] [TELUGU] సంస్థలోని
+  [Page 83 | y=107.8 | x=263.8] [TELUGU] మొత్తం
+  [Page 83 | y=108.7 | x=46.6] [TELUGU] మరియు
+  [Page 83 | y=108.7 | x=87.6] [TELUGU] హ్యూమన్
+  [Page 83 | y=108.7 | x=133.3] [TELUGU] రిసోర్సెస్
+  [Page 83 | y=108.7 | x=202.4] [TELUGU] ఈ
+  [Page 83 | y=108.7 | x=299.5] [TELUGU] మహిళా
+  [Page 83 | y=108.7 | x=336.4] [TELUGU] ఉద్యోగుల
+  [Page 83 | y=108.7 | x=382.5] [TELUGU] సంఖ్య
+  [Page 83 | y=110.6 | x=173.8] [ENG/NUM] (HR).
+  [Page 83 | y=110.6 | x=412.3] [ENG/NUM] 5,000.
+  [Page 83 | y=132.7 | x=223.9] [TELUGU] మొత్తం
+  [Page 83 | y=132.7 | x=383.2] [TELUGU] సూచిస్తుంది
+  [Page 83 | y=132.7 | x=833.8] [TELUGU] సూచిస్తుంది
+  [Page 83 | y=133.5 | x=46.6] [TELUGU] మొదటి
+  [Page 83 | y=133.5 | x=84.3] [TELUGU] పై
+  [Page 83 | y=133.5 | x=98.5] [TELUGU] రేఖాచిత్రం
+  [Page 83 | y=133.5 | x=139.9] [TELUGU] ం
+  [Page 83 | y=133.5 | x=152.5] [TELUGU] విభాగాల
+  [Page 83 | y=133.5 | x=193.5] [TELUGU] వారీగా
+  [Page 83 | y=133.5 | x=259.5] [TELUGU] ఉద్యోగుల
+  [Page 83 | y=133.5 | x=305.6] [TELUGU] శాతం
+  [Page 83 | y=133.5 | x=334.0] [TELUGU] వితరణను
+  [Page 83 | y=133.5 | x=439.8] [TELUGU] మరియు
+  [Page 83 | y=133.5 | x=480.8] [TELUGU] రెండవ
+  [Page 83 | y=133.5 | x=515.9] [TELUGU] పై
+  [Page 83 | y=133.5 | x=530.0] [TELUGU] రేఖాచిత్రం
+  [Page 83 | y=133.5 | x=571.5] [TELUGU] ం
+  [Page 83 | y=133.5 | x=581.5] [TELUGU] అవే
+  [Page 83 | y=133.5 | x=601.9] [TELUGU] విభాగాల
+  [Page 83 | y=133.5 | x=642.9] [TELUGU] వారీగా
+  [Page 83 | y=133.5 | x=673.2] [TELUGU] మహిళా
+  [Page 83 | y=133.5 | x=710.1] [TELUGU] ఉద్యోగుల
+  [Page 83 | y=133.5 | x=756.2] [TELUGU] శాతం
+  [Page 83 | y=133.5 | x=784.6] [TELUGU] వితరణను
+  [Page 83 | y=135.4 | x=95.1] [ENG/NUM] -
+  [Page 83 | y=135.4 | x=147.4] [ENG/NUM] ,
+  [Page 83 | y=135.4 | x=526.6] [ENG/NUM] -
+  [Page 83 | y=135.4 | x=887.9] [ENG/NUM] .
+  [Page 83 | y=158.5 | x=46.3] [IMAGE/CHART width=318, height=311]
+  [Page 84 | y=28.5 | x=46.3] [IMAGE/CHART width=318, height=323]
+  [Page 84 | y=351.5 | x=46.6] [TELUGU] అనువాద
+  [Page 84 | y=351.5 | x=95.8] [TELUGU] సూచిక
+  [Page 84 | y=353.5 | x=129.2] [ENG/NUM] :-
+  [Page 84 | y=364.1 | x=231.4] [TELUGU] మొత్తం
+  [Page 84 | y=364.9 | x=267.1] [TELUGU] ఉద్యోగుల
+  [Page 84 | y=364.9 | x=313.1] [TELUGU] వితరణ
+  [Page 84 | y=366.8 | x=46.6] [ENG/NUM] Total Workforce Distribution (N = 12,000) =
+  [Page 84 | y=366.8 | x=347.4] [ENG/NUM] (N = 12,000)
+  [Page 84 | y=378.3 | x=99.9] [TELUGU] మార్కెటింగ్
+  [Page 84 | y=380.2 | x=46.6] [ENG/NUM] Marketing =
+  [Page 84 | y=391.7 | x=102.2] [TELUGU] ఆపరేషన్స్
+  [Page 84 | y=393.6 | x=46.6] [ENG/NUM] Operations =
+  [Page 84 | y=405.1 | x=79.0] [TELUGU] సేల్స్
+  [Page 84 | y=407.0 | x=46.6] [ENG/NUM] Sales =
+  [Page 84 | y=417.6 | x=366.7] [TELUGU] మొత్తం
+  [Page 84 | y=418.5 | x=243.5] [TELUGU] మహిళా
+  [Page 84 | y=418.5 | x=280.4] [TELUGU] ఉద్యోగుల
+  [Page 84 | y=418.5 | x=326.5] [TELUGU] వితరణ
+  [Page 84 | y=420.4 | x=46.6] [ENG/NUM] Female Workforce Distribution (Total: 5,000) =
+  [Page 84 | y=420.4 | x=360.7] [ENG/NUM] (
+  [Page 84 | y=420.4 | x=399.8] [ENG/NUM] : 5,000)
+  [Page 84 | y=442.5 | x=178.8] [TELUGU] వ్యక్తీకరణలు
+  [Page 84 | y=443.3 | x=46.6] [TELUGU] జాబితా
+  [Page 84 | y=443.3 | x=85.7] [TELUGU] లో
+  [Page 84 | y=443.3 | x=100.2] [TELUGU] ఇవ్వబడిన
+  [Page 84 | y=443.3 | x=151.7] [TELUGU] గణిత
+  [Page 84 | y=443.3 | x=235.9] [TELUGU] లేదా
+  [Page 84 | y=443.3 | x=260.5] [TELUGU] నిబంధనలను
+  [Page 84 | y=443.3 | x=330.0] [TELUGU] జాబితా
+  [Page 84 | y=443.3 | x=372.5] [TELUGU] లో
+  [Page 84 | y=443.3 | x=387.0] [TELUGU] ఇవ్వబడిన
+  [Page 84 | y=443.3 | x=438.5] [TELUGU] వాటి
+  [Page 84 | y=443.3 | x=461.7] [TELUGU] ఖచ్చితమైన
+  [Page 84 | y=443.3 | x=519.6] [TELUGU] లెక్కింంచిన
+  [Page 84 | y=443.3 | x=569.5] [TELUGU] విలువలతో
+  [Page 84 | y=443.3 | x=622.0] [TELUGU] జతపరచండి
+  [Page 84 | y=445.3 | x=78.9] [ENG/NUM] -I
+  [Page 84 | y=445.3 | x=324.9] [ENG/NUM] ,
+  [Page 84 | y=445.3 | x=362.3] [ENG/NUM] -II
+  [Page 84 | y=445.3 | x=681.2] [ENG/NUM] :
+  [Page 84 | y=470.1 | x=714.8] [TELUGU] జాబితా
+  [Page 84 | y=472.0 | x=750.6] [ENG/NUM] -II
+  [Page 84 | y=476.3 | x=250.0] [TELUGU] వ్యక్తీకరణ
+  [Page 84 | y=477.1 | x=200.9] [TELUGU] జాబితా
+  [Page 84 | y=477.1 | x=305.3] [TELUGU] నిబంధన
+  [Page 84 | y=479.0 | x=236.7] [ENG/NUM] -I (
+  [Page 84 | y=479.0 | x=297.4] [ENG/NUM] /
+  [Page 84 | y=479.0 | x=350.9] [ENG/NUM] )
+  [Page 84 | y=483.5 | x=722.4] [TELUGU] విలువ
+  [Page 84 | y=485.4 | x=719.1] [ENG/NUM] (
+  [Page 84 | y=485.4 | x=754.4] [ENG/NUM] )
+  [Page 84 | y=498.6 | x=461.3] [TELUGU] నిష్పత్తి
+  [Page 84 | y=499.4 | x=88.2] [TELUGU] విభాగంలోని
+  [Page 84 | y=499.4 | x=144.7] [TELUGU] పురుష
+  [Page 84 | y=499.4 | x=177.4] [TELUGU] ఉద్యోగులకు
+  [Page 84 | y=499.4 | x=234.6] [TELUGU] మరియు
+  [Page 84 | y=499.4 | x=292.4] [TELUGU] విభాగంలోని
+  [Page 84 | y=499.4 | x=348.9] [TELUGU] మహిళా
+  [Page 84 | y=499.4 | x=385.8] [TELUGU] ఉద్యోగులకు
+  [Page 84 | y=499.4 | x=443.0] [TELUGU] గల
+  [Page 84 | y=500.7 | x=509.3] [ENG/NUM] (1) 48 : 11
+  [Page 84 | y=501.4 | x=48.5] [ENG/NUM] (P) R&D
+  [Page 84 | y=501.4 | x=273.1] [ENG/NUM] HR
+  [Page 84 | y=501.4 | x=494.0] [ENG/NUM] .
+  [Page 84 | y=514.5 | x=150.7] [TELUGU] మొత్తం
+  [Page 84 | y=514.5 | x=398.5] [TELUGU] మొత్తం
+  [Page 84 | y=515.4 | x=65.2] [TELUGU] సేల్స్
+  [Page 84 | y=515.4 | x=94.2] [TELUGU] విభాగంలోని
+  [Page 84 | y=515.4 | x=186.4] [TELUGU] పురుష
+  [Page 84 | y=515.4 | x=219.1] [TELUGU] ఉద్యోగులకు
+  [Page 84 | y=515.4 | x=276.3] [TELUGU] మరియు
+  [Page 84 | y=515.4 | x=342.0] [TELUGU] విభాగంలోని
+  [Page 84 | y=515.4 | x=434.2] [TELUGU] మహిళా
+  [Page 84 | y=517.3 | x=48.5] [ENG/NUM] (Q)
+  [Page 84 | y=517.3 | x=314.8] [ENG/NUM] R&D
+  [Page 84 | y=523.0 | x=509.3] [ENG/NUM] (2) 8 : 3
+  [Page 84 | y=527.9 | x=124.0] [TELUGU] నిష్పత్తి
+  [Page 84 | y=528.8 | x=48.5] [TELUGU] ఉద్యోగులకు
+  [Page 84 | y=528.8 | x=105.7] [TELUGU] గల
+  [Page 84 | y=530.7 | x=156.7] [ENG/NUM] .
+  [Page 84 | y=543.9 | x=172.4] [TELUGU] మొత్తం
+  [Page 84 | y=543.9 | x=417.4] [TELUGU] మొత్తం
+  [Page 84 | y=544.7 | x=64.6] [TELUGU] ఆపరేషన్స్
+  [Page 84 | y=544.7 | x=115.9] [TELUGU] విభాగంలోని
+  [Page 84 | y=544.7 | x=208.1] [TELUGU] ఉద్యోగులకు
+  [Page 84 | y=544.7 | x=265.3] [TELUGU] మరియు
+  [Page 84 | y=544.7 | x=306.3] [TELUGU] మార్కెటింగ్
+  [Page 84 | y=544.7 | x=360.9] [TELUGU] విభాగంలోని
+  [Page 84 | y=544.7 | x=453.1] [TELUGU] పురుష
+  [Page 84 | y=546.6 | x=48.5] [ENG/NUM] (R)
+  [Page 84 | y=552.4 | x=509.3] [ENG/NUM] (3) 48 : 13
+  [Page 84 | y=557.2 | x=124.0] [TELUGU] నిష్పత్తి
+  [Page 84 | y=558.1 | x=48.5] [TELUGU] ఉద్యోగులకు
+  [Page 84 | y=558.1 | x=105.7] [TELUGU] గల
+  [Page 84 | y=560.0 | x=156.7] [ENG/NUM] .
+  [Page 85 | y=28.1 | x=457.1] [TELUGU] నిష్పత్తి
+  [Page 85 | y=29.0 | x=88.2] [TELUGU] విభాగంలోని
+  [Page 85 | y=29.0 | x=144.7] [TELUGU] పురుష
+  [Page 85 | y=29.0 | x=177.4] [TELUGU] ఉద్యోగులకు
+  [Page 85 | y=29.0 | x=234.6] [TELUGU] మరియు
+  [Page 85 | y=29.0 | x=292.4] [TELUGU] విభాగంలోని
+  [Page 85 | y=29.0 | x=348.9] [TELUGU] పురుష
+  [Page 85 | y=29.0 | x=381.6] [TELUGU] ఉద్యోగులకు
+  [Page 85 | y=29.0 | x=438.8] [TELUGU] గల
+  [Page 85 | y=30.3 | x=509.3] [ENG/NUM] (4) 3 : 1
+  [Page 85 | y=30.9 | x=48.5] [ENG/NUM] (S) R&D
+  [Page 85 | y=30.9 | x=273.1] [ENG/NUM] HR
+  [Page 85 | y=30.9 | x=489.8] [ENG/NUM] .
+  [Page 85 | y=54.9 | x=46.6] [TELUGU] సరిగ్గా
+  [Page 85 | y=55.7 | x=74.5] [TELUGU] జతపరచబడిన
+  [Page 85 | y=55.7 | x=146.1] [TELUGU] దానిని
+  [Page 85 | y=55.7 | x=177.4] [TELUGU] ఎంచుకోండి
+  [Page 85 | y=57.7 | x=231.0] [ENG/NUM] .
+  [Page 85 | y=83.2 | x=46.6] [ENG/NUM] Options :
+  [Page 85 | y=99.1 | x=47.2] [ENG/NUM] 1.
+  [Page 85 | y=99.1 | x=70.2] [ENG/NUM] P-3, Q-4, R-2, S-1
+  [Page 85 | y=115.7 | x=47.2] [ENG/NUM] 2.
+  [Page 85 | y=115.7 | x=70.2] [ENG/NUM] P-2, Q-1, R-3, S-4
+  [Page 85 | y=132.3 | x=47.2] [ENG/NUM] 3.
+  [Page 85 | y=132.3 | x=70.2] [ENG/NUM] P-2, Q-4, R-3, S-1
+  [Page 85 | y=148.8 | x=47.2] [ENG/NUM] 4.
+  [Page 85 | y=148.8 | x=70.2] [ENG/NUM] P-3, Q-2, R-4, S-1
+
+--------------------------------------------------
+📌 QUESTION 119 (Page 85, y=181.3)
+--------------------------------------------------
+  [Page 85 | y=181.3 | x=46.6] [ENG/NUM] Question Number : 119 Question Id : 4410092529350 Question Type : MCQ Option Shuffling : Yes
+  [Page 85 | y=195.4 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 85 | y=209.4 | x=46.6] [ENG/NUM] Study the radar chart carefully and answer the question that follows.
+  [Page 85 | y=220.9 | x=46.6] [ENG/NUM] The given chart shows the number of students (in thousands) enrolled in two different universities (University A and University B) across six different years (2021 to 2026).
+  [Page 85 | y=232.5 | x=46.3] [IMAGE/CHART width=497, height=289]
+  [Page 85 | y=521.8 | x=46.6] [ENG/NUM] In which year was the percentage growth in the number of students in University A the highest compared to its previous year, and what was the absolute difference (in thousands) between the student enrollments of University
+  [Page 85 | y=533.2 | x=46.6] [ENG/NUM] A and University B in that specific year?
+  [Page 85 | y=547.3 | x=46.6] [ENG/NUM] Options :
+  [Page 85 | y=563.2 | x=47.2] [ENG/NUM] 1.
+  [Page 85 | y=563.2 | x=69.8] [ENG/NUM] Year 2023; Difference = 8 thousands
+  [Page 86 | y=30.9 | x=47.2] [ENG/NUM] 2.
+  [Page 86 | y=30.9 | x=69.8] [ENG/NUM] Year 2022; Difference = 7 thousands
+  [Page 86 | y=47.5 | x=47.2] [ENG/NUM] 3.
+  [Page 86 | y=47.5 | x=69.8] [ENG/NUM] Year 2025; Difference = 7 thousands
+  [Page 86 | y=64.0 | x=47.2] [ENG/NUM] 4.
+  [Page 86 | y=64.0 | x=69.8] [ENG/NUM] Year 2024; Difference = 3 thousands
+
+--------------------------------------------------
+📌 QUESTION 119 (Page 86, y=96.5)
+--------------------------------------------------
+  [Page 86 | y=96.5 | x=46.6] [ENG/NUM] Question Number : 119 Question Id : 4410092529350 Question Type : MCQ Option Shuffling : Yes
+  [Page 86 | y=110.6 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 86 | y=123.7 | x=79.6] [TELUGU] చార్ట్
+  [Page 86 | y=123.7 | x=114.8] [TELUGU] జాగ్రత్తగా
+  [Page 86 | y=124.6 | x=46.6] [TELUGU] రాడార్
+  [Page 86 | y=124.6 | x=99.8] [TELUGU] ను
+  [Page 86 | y=124.6 | x=156.4] [TELUGU] అధ్యయనం
+  [Page 86 | y=124.6 | x=213.7] [TELUGU] చేసి
+  [Page 86 | y=124.6 | x=237.8] [TELUGU] దాని
+  [Page 86 | y=124.6 | x=260.5] [TELUGU] తర్వాత
+  [Page 86 | y=124.6 | x=297.8] [TELUGU] వచ్చే
+  [Page 86 | y=124.6 | x=324.8] [TELUGU] ప్ర
+  [Page 86 | y=124.6 | x=335.9] [TELUGU] శ్నకు
+  [Page 86 | y=124.6 | x=362.5] [TELUGU] సమాధానం
+  [Page 86 | y=124.6 | x=416.1] [TELUGU] ఇవ్వంండి
+  [Page 86 | y=126.5 | x=99.8] [ENG/NUM] ‌
+  [Page 86 | y=126.5 | x=232.7] [ENG/NUM] ,
+  [Page 86 | y=126.5 | x=455.3] [ENG/NUM] .
+  [Page 86 | y=148.6 | x=99.7] [TELUGU] చార్ట్
+  [Page 86 | y=148.6 | x=877.5] [TELUGU] విద్యార్థుల
+  [Page 86 | y=149.5 | x=46.6] [TELUGU] ఇవ్వబడిన
+  [Page 86 | y=149.5 | x=124.0] [TELUGU] ఆరు
+  [Page 86 | y=149.5 | x=148.8] [TELUGU] వేర్వేరు
+  [Page 86 | y=149.5 | x=186.6] [TELUGU] సంవత్సరాలలో
+  [Page 86 | y=149.5 | x=290.4] [TELUGU] నుండి
+  [Page 86 | y=149.5 | x=348.1] [TELUGU] వరకు
+  [Page 86 | y=149.5 | x=382.4] [TELUGU] రెండు
+  [Page 86 | y=149.5 | x=414.7] [TELUGU] వేర్వేరు
+  [Page 86 | y=149.5 | x=452.4] [TELUGU] విశ్వవిద్యాలయాలలో
+  [Page 86 | y=149.5 | x=554.0] [TELUGU] విశ్వవిద్యాలయం
+  [Page 86 | y=149.5 | x=646.2] [TELUGU] మరియు
+  [Page 86 | y=149.5 | x=688.8] [TELUGU] విశ్వవిద్యాలయం
+  [Page 86 | y=149.5 | x=784.5] [TELUGU] నమోదు
+  [Page 86 | y=149.5 | x=824.9] [TELUGU] చేసుకున్న
+  [Page 86 | y=149.5 | x=927.2] [TELUGU] సంఖ్యను
+  [Page 86 | y=151.4 | x=258.3] [ENG/NUM] (2021
+  [Page 86 | y=151.4 | x=319.4] [ENG/NUM] 2026
+  [Page 86 | y=151.4 | x=374.9] [ENG/NUM] )
+  [Page 86 | y=151.4 | x=546.4] [ENG/NUM] (
+  [Page 86 | y=151.4 | x=631.1] [ENG/NUM] A
+  [Page 86 | y=151.4 | x=766.0] [ENG/NUM] B)
+  [Page 86 | y=162.0 | x=95.6] [TELUGU] చూపిస్తుంది
+  [Page 86 | y=162.8 | x=50.0] [TELUGU] వేలలలో
+  [Page 86 | y=164.8 | x=46.6] [ENG/NUM] (
+  [Page 86 | y=164.8 | x=89.7] [ENG/NUM] )
+  [Page 86 | y=164.8 | x=149.5] [ENG/NUM] .
+  [Page 86 | y=187.9 | x=46.3] [IMAGE/CHART width=497, height=289]
+  [Page 86 | y=487.8 | x=133.4] [TELUGU] విద్యార్థుల
+  [Page 86 | y=487.8 | x=228.3] [TELUGU] వృద్ధి
+  [Page 86 | y=487.8 | x=434.1] [TELUGU] పోలిస్తే
+  [Page 86 | y=487.8 | x=693.8] [TELUGU] నిర్దిష్ట
+  [Page 86 | y=488.6 | x=46.6] [TELUGU] యూనివర్శిటీ
+  [Page 86 | y=488.6 | x=117.7] [TELUGU] లో
+  [Page 86 | y=488.6 | x=182.8] [TELUGU] సంఖ్యలో
+  [Page 86 | y=488.6 | x=255.3] [TELUGU] శాతం
+  [Page 86 | y=488.6 | x=287.4] [TELUGU] అంతకుముందు
+  [Page 86 | y=488.6 | x=365.1] [TELUGU] సంవత్సరంతో
+  [Page 86 | y=488.6 | x=469.1] [TELUGU] ఏ
+  [Page 86 | y=488.6 | x=481.1] [TELUGU] సంవత్సరంలో
+  [Page 86 | y=488.6 | x=551.3] [TELUGU] అత్యధికంగా
+  [Page 86 | y=488.6 | x=610.4] [TELUGU] ఉంది
+  [Page 86 | y=488.6 | x=645.0] [TELUGU] అలాగే
+  [Page 86 | y=488.6 | x=680.6] [TELUGU] ఆ
+  [Page 86 | y=488.6 | x=722.7] [TELUGU] సంవత్సరంలో
+  [Page 86 | y=488.6 | x=792.9] [TELUGU] యూనివర్శిటీ
+  [Page 86 | y=488.6 | x=867.2] [TELUGU] మరియు
+  [Page 86 | y=488.6 | x=909.4] [TELUGU] యూనివర్శిటీ
+  [Page 86 | y=490.5 | x=106.6] [ENG/NUM] A
+  [Page 86 | y=490.5 | x=281.1] [ENG/NUM] ,
+  [Page 86 | y=490.5 | x=636.7] [ENG/NUM] ?
+  [Page 86 | y=490.5 | x=674.3] [ENG/NUM] ,
+  [Page 86 | y=490.5 | x=690.0] [ENG/NUM] ​
+  [Page 86 | y=490.5 | x=852.9] [ENG/NUM] A
+  [Page 86 | y=501.1 | x=121.2] [TELUGU] విద్యార్థుల
+  [Page 86 | y=501.1 | x=270.9] [TELUGU] వేలల్లో
+  [Page 86 | y=502.0 | x=53.4] [TELUGU] లలో
+  [Page 86 | y=502.0 | x=77.3] [TELUGU] నమోదైన
+  [Page 86 | y=502.0 | x=169.3] [TELUGU] సంఖ్యల
+  [Page 86 | y=502.0 | x=211.1] [TELUGU] మధ్య
+  [Page 86 | y=502.0 | x=239.4] [TELUGU] భేదం
+  [Page 86 | y=502.0 | x=307.1] [TELUGU] ఎంత
+  [Page 86 | y=503.9 | x=46.6] [ENG/NUM] B
+  [Page 86 | y=503.9 | x=264.9] [ENG/NUM] (
+  [Page 86 | y=503.9 | x=301.1] [ENG/NUM] )
+  [Page 86 | y=503.9 | x=332.0] [ENG/NUM] ?
+  [Page 86 | y=517.9 | x=46.6] [ENG/NUM] Options :
+  [Page 86 | y=532.6 | x=70.2] [TELUGU] సంవత్సరం
+  [Page 86 | y=532.6 | x=153.0] [TELUGU] భేదం
+  [Page 86 | y=532.6 | x=197.1] [TELUGU] వేలు
+  [Page 86 | y=534.5 | x=47.2] [ENG/NUM] 1.
+  [Page 86 | y=534.5 | x=124.7] [ENG/NUM] 2023;
+  [Page 86 | y=534.5 | x=178.6] [ENG/NUM] = 8
+  [Page 86 | y=549.8 | x=70.2] [TELUGU] సంవత్సరం
+  [Page 86 | y=549.8 | x=153.0] [TELUGU] భేదం
+  [Page 86 | y=549.8 | x=197.1] [TELUGU] వేలు
+  [Page 86 | y=551.7 | x=47.2] [ENG/NUM] 2.
+  [Page 86 | y=551.7 | x=124.7] [ENG/NUM] 2022;
+  [Page 86 | y=551.7 | x=178.6] [ENG/NUM] = 7
+  [Page 86 | y=567.0 | x=70.2] [TELUGU] సంవత్సరం
+  [Page 86 | y=567.0 | x=153.0] [TELUGU] భేదం
+  [Page 86 | y=567.0 | x=197.1] [TELUGU] వేలు
+  [Page 86 | y=568.9 | x=47.2] [ENG/NUM] 3.
+  [Page 86 | y=568.9 | x=124.7] [ENG/NUM] 2025;
+  [Page 86 | y=568.9 | x=178.6] [ENG/NUM] = 7
+  [Page 87 | y=29.6 | x=70.2] [TELUGU] సంవత్సరం
+  [Page 87 | y=29.6 | x=153.0] [TELUGU] భేదం
+  [Page 87 | y=29.6 | x=197.1] [TELUGU] వేలు
+  [Page 87 | y=31.5 | x=47.2] [ENG/NUM] 4.
+  [Page 87 | y=31.5 | x=124.7] [ENG/NUM] 2024;
+  [Page 87 | y=31.5 | x=178.6] [ENG/NUM] = 3
+  [Page 87 | y=64.0 | x=46.6] [ENG/NUM] Question Number : 120 Question Id : 4410092529352 Question Type : MCQ Option Shuffling : Yes
+  [Page 87 | y=78.1 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 87 | y=92.1 | x=46.6] [ENG/NUM] Study the table carefully and answer the question that follows.
+  [Page 87 | y=103.6 | x=46.6] [ENG/NUM] The table given below shows the quarterly product sales data (in ₹ thousands) across four consecutive quarters (Q1, Q2, Q3, and Q4) for three distinct retail product categories: Electronics, Apparel, and Home Decor.
+  [Page 87 | y=117.6 | x=100.8] [ENG/NUM] Product Category
+  [Page 87 | y=117.6 | x=297.3] [ENG/NUM] Q1 Revenue
+  [Page 87 | y=117.6 | x=481.5] [ENG/NUM] Q2 Revenue
+  [Page 87 | y=117.6 | x=665.7] [ENG/NUM] Q3 Revenue
+  [Page 87 | y=117.6 | x=849.9] [ENG/NUM] Q4 Revenue
+  [Page 87 | y=132.2 | x=115.4] [ENG/NUM] Electronics
+  [Page 87 | y=132.2 | x=316.2] [ENG/NUM] 450
+  [Page 87 | y=132.2 | x=500.3] [ENG/NUM] 320
+  [Page 87 | y=132.2 | x=684.5] [ENG/NUM] 380
+  [Page 87 | y=132.2 | x=868.7] [ENG/NUM] 350
+  [Page 87 | y=146.9 | x=121.9] [ENG/NUM] Apparel
+  [Page 87 | y=146.9 | x=316.2] [ENG/NUM] 300
+  [Page 87 | y=146.9 | x=500.3] [ENG/NUM] 390
+  [Page 87 | y=146.9 | x=684.5] [ENG/NUM] 350
+  [Page 87 | y=146.9 | x=868.7] [ENG/NUM] 410
+  [Page 87 | y=161.6 | x=112.3] [ENG/NUM] Home Decor
+  [Page 87 | y=161.6 | x=316.2] [ENG/NUM] 250
+  [Page 87 | y=161.6 | x=500.3] [ENG/NUM] 390
+  [Page 87 | y=161.6 | x=684.5] [ENG/NUM] 410
+  [Page 87 | y=161.6 | x=868.7] [ENG/NUM] 350
+  [Page 87 | y=187.1 | x=46.6] [ENG/NUM] What is the total revenue (in ₹ thousands) generated by the product category that had the highest average quarterly revenue?
+  [Page 87 | y=201.1 | x=46.6] [ENG/NUM] Options :
+  [Page 87 | y=217.0 | x=47.2] [ENG/NUM] 1.
+  [Page 87 | y=217.0 | x=70.2] [ENG/NUM] 1500
+  [Page 87 | y=233.6 | x=47.2] [ENG/NUM] 2.
+  [Page 87 | y=233.6 | x=70.2] [ENG/NUM] 1450
+  [Page 87 | y=250.2 | x=47.2] [ENG/NUM] 3.
+  [Page 87 | y=250.2 | x=70.2] [ENG/NUM] 1400
+  [Page 87 | y=266.8 | x=47.2] [ENG/NUM] 4.
+  [Page 87 | y=266.8 | x=70.2] [ENG/NUM] 1250
+  [Page 87 | y=299.3 | x=46.6] [ENG/NUM] Question Number : 120 Question Id : 4410092529352 Question Type : MCQ Option Shuffling : Yes
+  [Page 87 | y=313.3 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 87 | y=326.5 | x=88.2] [TELUGU] పట్టికను
+  [Page 87 | y=326.5 | x=126.9] [TELUGU] జాగ్రత్తగా
+  [Page 87 | y=327.3 | x=46.6] [TELUGU] ఈ
+  [Page 87 | y=327.3 | x=60.3] [TELUGU] క్రింింది
+  [Page 87 | y=327.3 | x=168.5] [TELUGU] అధ్యయనం
+  [Page 87 | y=327.3 | x=225.8] [TELUGU] చేసి
+  [Page 87 | y=327.3 | x=249.9] [TELUGU] తర్వాత
+  [Page 87 | y=327.3 | x=287.2] [TELUGU] వచ్చే
+  [Page 87 | y=327.3 | x=314.1] [TELUGU] ప్ర
+  [Page 87 | y=327.3 | x=325.2] [TELUGU] శ్నకు
+  [Page 87 | y=327.3 | x=351.8] [TELUGU] సమాధానం
+  [Page 87 | y=327.3 | x=405.4] [TELUGU] ఇవ్వంండి
+  [Page 87 | y=329.2 | x=244.8] [ENG/NUM] ,
+  [Page 87 | y=329.2 | x=444.7] [ENG/NUM] .
+  [Page 87 | y=351.3 | x=98.1] [TELUGU] పట్టిక
+  [Page 87 | y=351.3 | x=179.9] [TELUGU] దుస్తులు
+  [Page 87 | y=351.3 | x=449.1] [TELUGU] ఉత్పత్తి
+  [Page 87 | y=351.3 | x=485.6] [TELUGU] వర్గాలకు
+  [Page 87 | y=351.3 | x=882.1] [TELUGU] ఉత్పత్తి
+  [Page 87 | y=352.2 | x=46.6] [TELUGU] ఇవ్వబడిన
+  [Page 87 | y=352.2 | x=124.3] [TELUGU] ఎలక్ట్రానిక్స్
+  [Page 87 | y=352.2 | x=221.1] [TELUGU] మరియు
+  [Page 87 | y=352.2 | x=262.2] [TELUGU] గృహాలంకరణ
+  [Page 87 | y=352.2 | x=327.8] [TELUGU] అనే
+  [Page 87 | y=352.2 | x=349.6] [TELUGU] మూడు
+  [Page 87 | y=352.2 | x=383.6] [TELUGU] విభిన్న
+  [Page 87 | y=352.2 | x=418.8] [TELUGU] రిటైల్
+  [Page 87 | y=352.2 | x=527.6] [TELUGU] సంబంధించి
+  [Page 87 | y=352.2 | x=588.7] [TELUGU] వరుసగా
+  [Page 87 | y=352.2 | x=628.6] [TELUGU] నాలుగు
+  [Page 87 | y=352.2 | x=666.3] [TELUGU] త్రైై
+  [Page 87 | y=352.2 | x=679.3] [TELUGU] మాసికాల
+  [Page 87 | y=352.2 | x=777.4] [TELUGU] మరియు
+  [Page 87 | y=352.2 | x=836.8] [TELUGU] త్రైై
+  [Page 87 | y=352.2 | x=849.8] [TELUGU] మాసిక
+  [Page 87 | y=352.2 | x=918.6] [TELUGU] విక్రయాల
+  [Page 87 | y=354.1 | x=174.8] [ENG/NUM] ,
+  [Page 87 | y=354.1 | x=721.3] [ENG/NUM] (Q1, Q2, Q3
+  [Page 87 | y=354.1 | x=815.9] [ENG/NUM] Q4)
+  [Page 87 | y=365.6 | x=46.6] [TELUGU] డేటాను
+  [Page 87 | y=365.6 | x=93.7] [TELUGU] వేలలో
+  [Page 87 | y=365.6 | x=129.9] [TELUGU] చూపుతుంది
+  [Page 87 | y=367.5 | x=80.1] [ENG/NUM] (₹
+  [Page 87 | y=367.5 | x=124.0] [ENG/NUM] )
+  [Page 87 | y=367.5 | x=185.1] [ENG/NUM] .
+  [Page 87 | y=392.1 | x=49.1] [TELUGU] ఉత్పత్తి
+  [Page 87 | y=392.1 | x=89.0] [TELUGU] వర్గంం
+  [Page 87 | y=393.0 | x=248.9] [TELUGU] రాబడి
+  [Page 87 | y=393.0 | x=433.1] [TELUGU] రాబడి
+  [Page 87 | y=393.0 | x=617.3] [TELUGU] రాబడి
+  [Page 87 | y=393.0 | x=801.5] [TELUGU] రాబడి
+  [Page 87 | y=394.9 | x=233.3] [ENG/NUM] Q1
+  [Page 87 | y=394.9 | x=417.5] [ENG/NUM] Q2
+  [Page 87 | y=394.9 | x=601.7] [ENG/NUM] Q3
+  [Page 87 | y=394.9 | x=785.9] [ENG/NUM] Q4
+  [Page 87 | y=409.6 | x=49.1] [TELUGU] ఎలక్ట్రా
+  [Page 87 | y=409.6 | x=82.4] [TELUGU] నిక్స్
+  [Page 87 | y=410.8 | x=233.3] [ENG/NUM] 450
+  [Page 87 | y=410.8 | x=417.5] [ENG/NUM] 320
+  [Page 87 | y=410.8 | x=601.7] [ENG/NUM] 380
+  [Page 87 | y=410.8 | x=785.9] [ENG/NUM] 350
+  [Page 87 | y=425.3 | x=49.1] [TELUGU] దుస్తులు
+  [Page 87 | y=427.4 | x=233.3] [ENG/NUM] 300
+  [Page 87 | y=427.4 | x=417.5] [ENG/NUM] 390
+  [Page 87 | y=427.4 | x=601.7] [ENG/NUM] 350
+  [Page 87 | y=427.4 | x=785.9] [ENG/NUM] 410
+  [Page 87 | y=442.7 | x=49.1] [TELUGU] గృహాలంకరణ
+  [Page 87 | y=444.0 | x=233.3] [ENG/NUM] 250
+  [Page 87 | y=444.0 | x=417.5] [ENG/NUM] 390
+  [Page 87 | y=444.0 | x=601.7] [ENG/NUM] 410
+  [Page 87 | y=444.0 | x=785.9] [ENG/NUM] 350
+  [Page 87 | y=469.3 | x=255.5] [TELUGU] ఉత్పత్తి
+  [Page 87 | y=469.3 | x=291.9] [TELUGU] వర్గంం
+  [Page 87 | y=469.3 | x=348.8] [TELUGU] ఆర్జింంచిన
+  [Page 87 | y=469.3 | x=393.9] [TELUGU] మొత్తం
+  [Page 87 | y=470.1 | x=46.6] [TELUGU] అత్యధిక
+  [Page 87 | y=470.1 | x=87.8] [TELUGU] సగటు
+  [Page 87 | y=470.1 | x=118.6] [TELUGU] త్రైై
+  [Page 87 | y=470.1 | x=131.6] [TELUGU] మాసిక
+  [Page 87 | y=470.1 | x=163.9] [TELUGU] రాబడిని
+  [Page 87 | y=470.1 | x=203.7] [TELUGU] కలిగి
+  [Page 87 | y=470.1 | x=228.0] [TELUGU] ఉన్న
+  [Page 87 | y=470.1 | x=317.6] [TELUGU] ద్వారా
+  [Page 87 | y=470.1 | x=429.6] [TELUGU] రాబడి
+  [Page 87 | y=470.1 | x=471.7] [TELUGU] వేలలో
+  [Page 87 | y=470.1 | x=507.9] [TELUGU] ఎంత
+  [Page 87 | y=472.0 | x=458.1] [ENG/NUM] (₹
+  [Page 87 | y=472.0 | x=501.9] [ENG/NUM] )
+  [Page 87 | y=472.0 | x=532.8] [ENG/NUM] ?
+  [Page 87 | y=486.1 | x=46.6] [ENG/NUM] Options :
+  [Page 87 | y=502.0 | x=47.2] [ENG/NUM] 1.
+  [Page 87 | y=502.0 | x=70.2] [ENG/NUM] 1500
+  [Page 87 | y=518.6 | x=47.2] [ENG/NUM] 2.
+  [Page 87 | y=518.6 | x=70.2] [ENG/NUM] 1450
+  [Page 87 | y=535.1 | x=47.2] [ENG/NUM] 3.
+  [Page 87 | y=535.1 | x=70.2] [ENG/NUM] 1400
+  [Page 87 | y=551.7 | x=47.2] [ENG/NUM] 4.
+  [Page 87 | y=551.7 | x=70.2] [ENG/NUM] 1250
+
+--------------------------------------------------
+📌 QUESTION 121 (Page 88, y=30.9)
+--------------------------------------------------
+  [Page 88 | y=30.9 | x=46.6] [ENG/NUM] Question Number : 121 Question Id : 4410092529332 Question Type : MCQ Option Shuffling : Yes
+  [Page 88 | y=44.9 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 88 | y=58.9 | x=46.6] [ENG/NUM] The graph below shows the distribution of marks obtained by 200 students in an examination. The frequency polygon corresponding to the histogram is also shown.
+  [Page 88 | y=82.1 | x=46.3] [IMAGE/CHART width=520, height=322]
+  [Page 88 | y=414.7 | x=46.6] [ENG/NUM] Consider the following statements:
+  [Page 88 | y=426.1 | x=46.6] [ENG/NUM] I. The median lies in the class interval 30–40.
+  [Page 88 | y=437.6 | x=46.6] [ENG/NUM] II. The mean marks, using the class midpoints, is 33.75.
+  [Page 88 | y=449.1 | x=46.6] [ENG/NUM] III. The mode, using the grouped-data formula, is 36 marks.
+  [Page 88 | y=460.6 | x=46.6] [ENG/NUM] IV. The number of students scoring 40 marks or more is 37.5% of the total number of students.
+  [Page 88 | y=483.5 | x=46.6] [ENG/NUM] Which of the above statements are correct?
+  [Page 88 | y=497.5 | x=46.6] [ENG/NUM] Options :
+  [Page 88 | y=513.5 | x=47.2] [ENG/NUM] 1.
+  [Page 88 | y=513.5 | x=70.2] [ENG/NUM] I and II only
+  [Page 88 | y=530.0 | x=47.2] [ENG/NUM] 2.
+  [Page 88 | y=530.0 | x=70.2] [ENG/NUM] II, III and IV only
+  [Page 88 | y=546.6 | x=47.2] [ENG/NUM] 3.
+  [Page 88 | y=546.6 | x=70.2] [ENG/NUM] I, II and III only
+  [Page 88 | y=563.2 | x=47.2] [ENG/NUM] 4.
+  [Page 88 | y=563.2 | x=70.2] [ENG/NUM] I, III and IV only
+
+--------------------------------------------------
+📌 QUESTION 121 (Page 89, y=44.9)
+--------------------------------------------------
+  [Page 89 | y=44.9 | x=46.6] [ENG/NUM] Question Number : 121 Question Id : 4410092529332 Question Type : MCQ Option Shuffling : Yes
+  [Page 89 | y=58.9 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 89 | y=72.1 | x=244.2] [TELUGU] విద్యార్థులు
+  [Page 89 | y=72.1 | x=488.0] [TELUGU] హిస్టోగ్రాా
+  [Page 89 | y=73.0 | x=46.6] [TELUGU] ఈ
+  [Page 89 | y=73.0 | x=60.3] [TELUGU] క్రింింది
+  [Page 89 | y=73.0 | x=88.2] [TELUGU] రేఖాచిత్రం
+  [Page 89 | y=73.0 | x=129.6] [TELUGU] ం
+  [Page 89 | y=73.0 | x=139.7] [TELUGU] ఒక
+  [Page 89 | y=73.0 | x=156.5] [TELUGU] పరీక్షలో
+  [Page 89 | y=73.0 | x=213.0] [TELUGU] మంది
+  [Page 89 | y=73.0 | x=296.1] [TELUGU] పొందిన
+  [Page 89 | y=73.0 | x=334.8] [TELUGU] మార్కుల
+  [Page 89 | y=73.0 | x=378.9] [TELUGU] విభజనను
+  [Page 89 | y=73.0 | x=427.7] [TELUGU] చూపుతుంది
+  [Page 89 | y=73.0 | x=521.2] [TELUGU] మ్
+  [Page 89 | y=73.0 | x=533.2] [TELUGU] కు
+  [Page 89 | y=73.0 | x=546.9] [TELUGU] సంబంధించిన
+  [Page 89 | y=73.0 | x=616.5] [TELUGU] పౌనఃపున్య
+  [Page 89 | y=73.0 | x=664.7] [TELUGU] బహుభుజి
+  [Page 89 | y=73.0 | x=712.8] [TELUGU] కూడా
+  [Page 89 | y=73.0 | x=741.5] [TELUGU] చూపబడింది
+  [Page 89 | y=74.9 | x=192.6] [ENG/NUM] 200
+  [Page 89 | y=74.9 | x=482.9] [ENG/NUM] .
+  [Page 89 | y=74.9 | x=533.2] [ENG/NUM] ‌
+  [Page 89 | y=74.9 | x=799.7] [ENG/NUM] .
+  [Page 89 | y=98.0 | x=46.3] [IMAGE/CHART width=520, height=322]
+  [Page 89 | y=420.4 | x=46.6] [TELUGU] అనువాద
+  [Page 89 | y=420.4 | x=95.8] [TELUGU] సూచిక
+  [Page 89 | y=422.3 | x=129.2] [ENG/NUM] :-
+  [Page 89 | y=432.9 | x=262.0] [TELUGU] విద్యార్థుల
+  [Page 89 | y=433.8 | x=230.8] [TELUGU] మంది
+  [Page 89 | y=433.8 | x=310.2] [TELUGU] మార్కుల
+  [Page 89 | y=433.8 | x=354.3] [TELUGU] విభజన
+  [Page 89 | y=435.7 | x=46.6] [ENG/NUM] Distribution of Marks of 200 Students = 200
+  [Page 89 | y=446.3 | x=139.6] [TELUGU] విద్యార్థుల
+  [Page 89 | y=447.2 | x=187.7] [TELUGU] సంఖ్య
+  [Page 89 | y=449.1 | x=46.6] [ENG/NUM] Number of Students =
+  [Page 89 | y=460.6 | x=137.0] [TELUGU] పౌనఃపున్య
+  [Page 89 | y=460.6 | x=185.3] [TELUGU] బహుభుజి
+  [Page 89 | y=462.5 | x=46.6] [ENG/NUM] Frequency Polygon =
+  [Page 89 | y=473.1 | x=100.5] [TELUGU] హిస్టోగ్రాా
+  [Page 89 | y=473.9 | x=133.7] [TELUGU] మ్
+  [Page 89 | y=475.9 | x=46.6] [ENG/NUM] Histogram =
+  [Page 89 | y=487.3 | x=149.2] [TELUGU] మార్కులు
+  [Page 89 | y=487.3 | x=200.6] [TELUGU] తరగతి
+  [Page 89 | y=487.3 | x=235.2] [TELUGU] అంతరం
+  [Page 89 | y=489.2 | x=46.6] [ENG/NUM] Marks (Class Interval) =
+  [Page 89 | y=489.2 | x=194.6] [ENG/NUM] (
+  [Page 89 | y=489.2 | x=276.7] [ENG/NUM] )
+  [Page 89 | y=522.4 | x=46.6] [TELUGU] ఈ
+  [Page 89 | y=522.4 | x=60.3] [TELUGU] క్రింింది
+  [Page 89 | y=522.4 | x=88.2] [TELUGU] ప్ర
+  [Page 89 | y=522.4 | x=99.3] [TELUGU] కటనలను
+  [Page 89 | y=522.4 | x=147.8] [TELUGU] పరిగణించండి
+  [Page 89 | y=524.3 | x=212.5] [ENG/NUM] :
+  [Page 89 | y=547.3 | x=55.1] [TELUGU] మధ్యగతం
+  [Page 89 | y=547.3 | x=134.3] [TELUGU] తరగతి
+  [Page 89 | y=547.3 | x=168.9] [TELUGU] అంతరంలో
+  [Page 89 | y=547.3 | x=224.9] [TELUGU] ఉంటుంది
+  [Page 89 | y=549.2 | x=46.6] [ENG/NUM] I.
+  [Page 89 | y=549.2 | x=103.7] [ENG/NUM] 30–40
+  [Page 89 | y=549.2 | x=272.1] [ENG/NUM] .
+  [Page 89 | y=560.6 | x=58.5] [TELUGU] తరగతి
+  [Page 89 | y=560.6 | x=93.1] [TELUGU] మధ్య
+  [Page 89 | y=560.6 | x=121.4] [TELUGU] బిందువులను
+  [Page 89 | y=560.6 | x=185.3] [TELUGU] ఉపయోగించి
+  [Page 89 | y=560.6 | x=249.7] [TELUGU] సగటు
+  [Page 89 | y=560.6 | x=280.6] [TELUGU] మార్కులు
+  [Page 89 | y=560.6 | x=328.5] [TELUGU] అనేది
+  [Page 89 | y=562.6 | x=46.6] [ENG/NUM] II.
+  [Page 89 | y=562.6 | x=244.6] [ENG/NUM] ,
+  [Page 89 | y=562.6 | x=356.6] [ENG/NUM] 33.75.
+  [Page 90 | y=27.5 | x=103.1] [TELUGU] దత్తాంంశ
+  [Page 90 | y=28.3 | x=61.9] [TELUGU] సమూహ
+  [Page 90 | y=28.3 | x=140.2] [TELUGU] సూత్రాా
+  [Page 90 | y=28.3 | x=169.6] [TELUGU] న్ని
+  [Page 90 | y=28.3 | x=187.4] [TELUGU] ఉపయోగించి
+  [Page 90 | y=28.3 | x=251.8] [TELUGU] బహుళకం
+  [Page 90 | y=28.3 | x=315.4] [TELUGU] మార్కులు
+  [Page 90 | y=30.2 | x=46.6] [ENG/NUM] III.
+  [Page 90 | y=30.2 | x=99.7] [ENG/NUM] -
+  [Page 90 | y=30.2 | x=246.7] [ENG/NUM] ,
+  [Page 90 | y=30.2 | x=297.6] [ENG/NUM] 36
+  [Page 90 | y=30.2 | x=360.8] [ENG/NUM] .
+  [Page 90 | y=40.9 | x=284.6] [TELUGU] విద్యార్థుల
+  [Page 90 | y=40.9 | x=367.6] [TELUGU] మొత్తం
+  [Page 90 | y=40.9 | x=403.3] [TELUGU] విద్యార్థుల
+  [Page 90 | y=41.7 | x=73.9] [TELUGU] లేదా
+  [Page 90 | y=41.7 | x=98.5] [TELUGU] అంతకంటే
+  [Page 90 | y=41.7 | x=151.6] [TELUGU] ఎక్కువ
+  [Page 90 | y=41.7 | x=187.6] [TELUGU] మార్కులు
+  [Page 90 | y=41.7 | x=235.6] [TELUGU] సాధించిన
+  [Page 90 | y=41.7 | x=332.7] [TELUGU] సంఖ్య
+  [Page 90 | y=41.7 | x=451.4] [TELUGU] సంఖ్యలో
+  [Page 90 | y=41.7 | x=524.6] [TELUGU] ఉంటుంది
+  [Page 90 | y=43.6 | x=46.6] [ENG/NUM] IV. 40
+  [Page 90 | y=43.6 | x=362.5] [ENG/NUM] ,
+  [Page 90 | y=43.6 | x=493.2] [ENG/NUM] 37.5%
+  [Page 90 | y=43.6 | x=571.8] [ENG/NUM] .
+  [Page 90 | y=66.6 | x=46.6] [TELUGU] పైన
+  [Page 90 | y=66.6 | x=68.4] [TELUGU] పేర్కొన్న
+  [Page 90 | y=66.6 | x=110.8] [TELUGU] ప్ర
+  [Page 90 | y=66.6 | x=121.9] [TELUGU] కటనలలో
+  [Page 90 | y=66.6 | x=169.9] [TELUGU] ఏవి
+  [Page 90 | y=66.6 | x=188.9] [TELUGU] సరైనవి
+  [Page 90 | y=68.5 | x=222.4] [ENG/NUM] ?
+  [Page 90 | y=82.5 | x=46.6] [ENG/NUM] Options :
+  [Page 90 | y=97.2 | x=76.1] [TELUGU] మరియు
+  [Page 90 | y=97.2 | x=126.5] [TELUGU] మాత్ర
+  [Page 90 | y=97.2 | x=153.5] [TELUGU] మే
+  [Page 90 | y=99.1 | x=47.2] [ENG/NUM] 1.
+  [Page 90 | y=99.1 | x=70.2] [ENG/NUM] I
+  [Page 90 | y=99.1 | x=114.6] [ENG/NUM] II
+  [Page 90 | y=114.4 | x=94.8] [TELUGU] మరియు
+  [Page 90 | y=114.4 | x=149.0] [TELUGU] మాత్ర
+  [Page 90 | y=114.4 | x=175.9] [TELUGU] మే
+  [Page 90 | y=116.3 | x=47.2] [ENG/NUM] 2.
+  [Page 90 | y=116.3 | x=70.2] [ENG/NUM] II, III
+  [Page 90 | y=116.3 | x=133.3] [ENG/NUM] IV
+  [Page 90 | y=132.9 | x=47.2] [ENG/NUM] 3.
+  [Page 90 | y=144.4 | x=65.1] [TELUGU] మరియు
+  [Page 90 | y=144.4 | x=118.8] [TELUGU] మాత్ర
+  [Page 90 | y=144.4 | x=145.8] [TELUGU] మే
+  [Page 90 | y=146.3 | x=47.2] [ENG/NUM] I, II
+  [Page 90 | y=146.3 | x=103.5] [ENG/NUM] III
+  [Page 90 | y=161.6 | x=91.4] [TELUGU] మరియు
+  [Page 90 | y=161.6 | x=145.6] [TELUGU] మాత్ర
+  [Page 90 | y=161.6 | x=172.5] [TELUGU] మే
+  [Page 90 | y=163.5 | x=47.2] [ENG/NUM] 4.
+  [Page 90 | y=163.5 | x=70.2] [ENG/NUM] I, III
+  [Page 90 | y=163.5 | x=129.9] [ENG/NUM] IV
+
+--------------------------------------------------
+📌 QUESTION 122 (Page 90, y=196.0)
+--------------------------------------------------
+  [Page 90 | y=196.0 | x=46.6] [ENG/NUM] Question Number : 122 Question Id : 4410092529355 Question Type : MCQ Option Shuffling : Yes
+  [Page 90 | y=210.0 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 90 | y=224.0 | x=46.6] [ENG/NUM] The line graph below shows the percentage profit earned by two electronics companies, AlphaTech and BetaCore, over a five-year period from 2021 to 2025.
+  [Page 90 | y=235.7 | x=268.8] [IMAGE/CHART width=191, height=26]
+  [Page 90 | y=240.0 | x=46.6] [ENG/NUM] For all calculations, profit percentage is calculated as:
+  [Page 90 | y=273.9 | x=46.3] [IMAGE/CHART width=478, height=284]
+  [Page 90 | y=558.7 | x=46.6] [ENG/NUM] Consider the following statements:
+  [Page 90 | y=570.2 | x=46.6] [ENG/NUM] Statement I:
+  [Page 90 | y=570.2 | x=100.7] [ENG/NUM] If the expenditure of AlphaTech in 2021 was equal to the expenditure of BetaCore in 2022, then the income of BetaCore in 2022 must be approximately 15.38% higher than the income of AlphaTech in 2021.
+  [Page 91 | y=28.3 | x=46.6] [ENG/NUM] Statement II:
+  [Page 91 | y=28.3 | x=104.7] [ENG/NUM] If the incomes of AlphaTech and BetaCore were equal in the year 2024, then the ratio of the expenditure of AlphaTech to that of BetaCore in 2024 was 5 : 6.
+  [Page 91 | y=51.3 | x=46.6] [ENG/NUM] Which of the following is correct?
+  [Page 91 | y=65.3 | x=46.6] [ENG/NUM] Options :
+  [Page 91 | y=81.2 | x=47.2] [ENG/NUM] 1.
+  [Page 91 | y=81.2 | x=70.2] [ENG/NUM] Only Statement I is correct
+  [Page 91 | y=97.8 | x=47.2] [ENG/NUM] 2.
+  [Page 91 | y=97.8 | x=70.2] [ENG/NUM] Only Statement II is correct
+  [Page 91 | y=114.4 | x=47.2] [ENG/NUM] 3.
+  [Page 91 | y=114.4 | x=70.2] [ENG/NUM] Both Statement I and Statement II are correct
+  [Page 91 | y=131.0 | x=47.2] [ENG/NUM] 4.
+  [Page 91 | y=131.0 | x=70.2] [ENG/NUM] Neither Statement I nor Statement II is correct
+
+--------------------------------------------------
+📌 QUESTION 122 (Page 91, y=163.5)
+--------------------------------------------------
+  [Page 91 | y=163.5 | x=46.6] [ENG/NUM] Question Number : 122 Question Id : 4410092529355 Question Type : MCQ Option Shuffling : Yes
+  [Page 91 | y=177.5 | x=46.6] [ENG/NUM] Correct Marks : 1 Wrong Marks : 0
+  [Page 91 | y=190.7 | x=249.0] [TELUGU] ఐదేళ్ల
+  [Page 91 | y=191.5 | x=46.6] [TELUGU] ఈ
+  [Page 91 | y=191.5 | x=60.3] [TELUGU] క్రింింది
+  [Page 91 | y=191.5 | x=88.2] [TELUGU] రేఖాచిత్రం
+  [Page 91 | y=191.5 | x=129.6] [TELUGU] ం
+  [Page 91 | y=191.5 | x=165.2] [TELUGU] నుండి
+  [Page 91 | y=191.5 | x=219.7] [TELUGU] వరకు
+  [Page 91 | y=191.5 | x=277.4] [TELUGU] కాలంలో
+  [Page 91 | y=191.5 | x=317.6] [TELUGU] ఆల్ఫాటెక్
+  [Page 91 | y=191.5 | x=365.0] [TELUGU] మరియు
+  [Page 91 | y=191.5 | x=406.0] [TELUGU] బీటాకోర్
+  [Page 91 | y=191.5 | x=445.6] [TELUGU] అనే
+  [Page 91 | y=191.5 | x=467.4] [TELUGU] రెండు
+  [Page 91 | y=191.5 | x=498.1] [TELUGU] ఎలక్ట్రానిక్స్
+  [Page 91 | y=191.5 | x=551.0] [TELUGU] కంపెనీలు
+  [Page 91 | y=191.5 | x=599.1] [TELUGU] సంపాదించిన
+  [Page 91 | y=191.5 | x=663.8] [TELUGU] లాభ
+  [Page 91 | y=191.5 | x=687.4] [TELUGU] శాతాన్ని
+  [Page 91 | y=191.5 | x=725.7] [TELUGU] చూపుతుంది
+  [Page 91 | y=193.4 | x=137.1] [ENG/NUM] , 2021
+  [Page 91 | y=193.4 | x=194.2] [ENG/NUM] 2025
+  [Page 91 | y=193.4 | x=780.9] [ENG/NUM] .
+  [Page 91 | y=216.4 | x=46.6] [TELUGU] అన్ని
+  [Page 91 | y=216.4 | x=74.3] [TELUGU] గణనల
+  [Page 91 | y=216.4 | x=110.5] [TELUGU] కోసం
+  [Page 91 | y=216.4 | x=139.5] [TELUGU] లాభ
+  [Page 91 | y=216.4 | x=163.1] [TELUGU] శాతం
+  [Page 91 | y=216.4 | x=191.5] [TELUGU] ఈ
+  [Page 91 | y=216.4 | x=205.1] [TELUGU] విధంగా
+  [Page 91 | y=216.4 | x=241.8] [TELUGU] లెక్కింంచబడుతుంది
+  [Page 91 | y=218.3 | x=134.4] [ENG/NUM] ,
+  [Page 91 | y=218.3 | x=331.8] [ENG/NUM] :
+  [Page 91 | y=241.4 | x=48.9] [IMAGE/CHART width=163, height=31]
+  [Page 91 | y=286.7 | x=46.3] [IMAGE/CHART width=478, height=284]
+  [Page 92 | y=28.3 | x=46.6] [TELUGU] అనువాద
+  [Page 92 | y=28.3 | x=95.8] [TELUGU] సూచిక
+  [Page 92 | y=30.2 | x=129.2] [ENG/NUM] :-
+  [Page 92 | y=40.9 | x=340.9] [TELUGU] విశ్లేషణ
+  [Page 92 | y=41.7 | x=240.2] [TELUGU] కంపెనీ
+  [Page 92 | y=41.7 | x=275.0] [TELUGU] లాభదాయకత
+  [Page 92 | y=43.6 | x=46.6] [ENG/NUM] Company Profitability Analysis (2021-2025) =
+  [Page 92 | y=43.6 | x=374.0] [ENG/NUM] (2021-2025)
+  [Page 92 | y=55.1 | x=102.0] [TELUGU] ఆల్ఫాటెక్
+  [Page 92 | y=57.0 | x=46.6] [ENG/NUM] AlphaTech =
+  [Page 92 | y=68.5 | x=96.0] [TELUGU] బీటాకోర్
+  [Page 92 | y=70.4 | x=46.6] [ENG/NUM] BetaCore =
+  [Page 92 | y=81.9 | x=98.5] [TELUGU] లాభం
+  [Page 92 | y=83.8 | x=46.6] [ENG/NUM] Profit (%) =
+  [Page 92 | y=83.8 | x=127.0] [ENG/NUM] (%)
+  [Page 92 | y=95.3 | x=76.2] [TELUGU] సంవత్సరం
+  [Page 92 | y=97.2 | x=46.6] [ENG/NUM] Year =
+  [Page 92 | y=120.1 | x=46.6] [TELUGU] ఈ
+  [Page 92 | y=120.1 | x=60.3] [TELUGU] క్రింింది
+  [Page 92 | y=120.1 | x=88.2] [TELUGU] ప్ర
+  [Page 92 | y=120.1 | x=99.3] [TELUGU] కటనలను
+  [Page 92 | y=120.1 | x=147.8] [TELUGU] పరిగణించండి
+  [Page 92 | y=122.0 | x=212.5] [ENG/NUM] :
+  [Page 92 | y=145.0 | x=46.6] [TELUGU] ప్ర
