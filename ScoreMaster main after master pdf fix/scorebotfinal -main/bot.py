@@ -7929,7 +7929,9 @@ async def pt_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             full_text += doc_pdf[pno].get_text() + "\n"
         doc_pdf.close()
 
-        # 🌟 BULLETPROOF METADATA EXTRACTOR (Handles inline, multi-line, timestamps & time ranges)
+        # ==========================================
+        # 📍 PASTE YOUR CODE SNIPPET RIGHT HERE:
+        # ==========================================
         def extract_field(pattern, text):
             m = re.search(pattern + r"\s*[:\-]\s*([^\n\r]+)", text, re.I)
             if m and m.group(1).strip():
@@ -8030,7 +8032,7 @@ async def pt_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "exam_name": exam_name,
             "branch": subject_name,
             "test_date": test_date.split(" ")[0] if " " in test_date else test_date,
-            "test_time": test_date.split(" ")[1] if " " in test_date else "00:00:00",
+            "test_time": test_time if test_time else "N/A",  # 👈 Fixes the 00:00:00 bug
             "name": "Master Evaluation Candidate",
             "hall_ticket": "MASTER",
             "test_center": "Online Examination Center",
