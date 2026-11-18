@@ -7817,9 +7817,7 @@ async def gatekey_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-# ==============================================================================
-# 🆕 MASTER PDF TO BOT INTERACTIVE TEST HTML (/PT COMMAND)
-# ==============================================================================
+
 # ==============================================================================
 # 🆕 MASTER PDF TO BOT INTERACTIVE TEST HTML (/PT COMMAND) - INTERACTIVE & LOGGED
 # ==============================================================================
@@ -7931,15 +7929,41 @@ async def pt_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             full_text += doc_pdf[pno].get_text() + "\n"
         doc_pdf.close()
 
-        exam_name_m = re.search(r"Question\s*Paper\s*Name\s*[:\-]\s*(.+)", full_text, re.I)
-        subject_m = re.search(r"Subject\s*Name\s*[:\-]\s*(.+)", full_text, re.I)
-        date_m = re.search(r"Creation\s*Date\s*[:\-]\s*(.+)", full_text, re.I)
-        duration_m = re.search(r"Duration\s*[:\-]\s*(\d+)", full_text, re.I)
+        # 🌟 BULLETPROOF METADATA EXTRACTOR (Handles inline, multi-line, timestamps & time ranges)
+        def extract_field(pattern, text):
+            m = re.search(pattern + r"\s*[:\-]\s*([^\n\r]+)", text, re.I)
+            if m and m.group(1).strip():
+                return m.group(1).strip()
+            m_multi = re.search(pattern + r"\s*[:\-]\s*\n\s*([^\n\r]+)", text, re.I)
+            if m_multi and m_multi.group(1).strip():
+                return m_multi.group(1).strip()
+            return ""
 
-        exam_name = exam_name_m.group(1).strip() if exam_name_m else os.path.basename(local_pdf_path).rsplit(".", 1)[0]
-        subject_name = subject_m.group(1).strip() if subject_m else "General Studies and General Abilities"
-        test_date = date_m.group(1).strip() if date_m else datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        duration_mins = int(duration_m.group(1)) if duration_m else 150
+        raw_exam = extract_field(r"Question\s*Paper\s*Name", full_text) or os.path.basename(local_pdf_path).rsplit(".", 1)[0]
+        raw_subj = extract_field(r"Subject\s*Name", full_text) or "General Studies and General Abilities"
+        full_date_str = extract_field(r"Creation\s*Date", full_text) or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        raw_duration = extract_field(r"Duration", full_text) or "150"
+
+        # 🧹 Clean up artifacts like "ACTUAL" or "JARDIN"
+        exam_name = re.sub(r"^\bACTUAL\b\s*", "", raw_exam, flags=re.I).strip()
+        exam_name = re.sub(r"\s+JARDIN\b", "", exam_name, flags=re.I).strip()
+
+        subject_name = re.sub(r"^\bACTUAL\b\s*", "", raw_subj, flags=re.I).strip()
+        subject_name = re.sub(r"\s+JARDIN\b", "", subject_name, flags=re.I).strip()
+
+        # 🌟 Smart Date & Time Splitter (Handles "YYYY-MM-DD HH:MM:SS" AND "Date + Time Range")
+        if " " in full_date_str and any(char.isdigit() for char in full_date_str.split(" ")[0]):
+            parts = full_date_str.split(" ", 1)
+            test_date = parts[0]
+            test_time = parts[1]
+        else:
+            test_date = full_date_str
+            test_time = raw_duration
+
+        duration_mins = 150
+        dur_match = re.search(r"\d+", raw_duration)
+        if dur_match:
+            duration_mins = int(dur_match.group(0))
 
         # 2. Import and run process_master_pdf with timeout protection
         try:
@@ -8097,7 +8121,7 @@ async def pt_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             try:
                 os.remove(out_html_path)
             except Exception:
-                pass  
+                pass
 
 # ==============================================================================
 # 10. ENTRY POINT
