@@ -2220,6 +2220,22 @@ def parse_ssc_cbexams(html_pages: list):
 # ==============================================================================
 # 🌟 MASTER PDF HANDLER (NEW FEATURE)
 # ==============================================================================
+async def safe_download_document(doc, save_path, max_retries=3):
+    """Downloads a Telegram document safely with SSL decryption error handling and retries."""
+    for attempt in range(max_retries):
+        try:
+            tg_file = await doc.get_file()
+            await tg_file.download_to_drive(save_path)
+            if os.path.exists(save_path) and os.path.getsize(save_path) > 0:
+                return True
+        except Exception as e:
+            logger.warning(f"Download attempt {attempt + 1} failed due to SSL/Network error: {e}")
+            if attempt == max_retries - 1:
+                raise e
+            await asyncio.sleep(2 * (attempt + 1))
+    return False
+
+
 async def handle_master_pdf(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handles Master PDF uploads and generates a locked HTML test."""
     if update.effective_user.id not in ADMIN_IDS:
@@ -2231,11 +2247,15 @@ async def handle_master_pdf(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     msg = await update.message.reply_text("📥 Downloading Master PDF…")
     
-    # Download PDF safely
+    # Download PDF safely with SSLError retry protection
     tmp_pdf = f"tmp_master_{doc.file_id}.pdf"
     out_html = f"master_test_{doc.file_id}.html"
-    tg_file = await doc.get_file()
-    await tg_file.download_to_drive(tmp_pdf)
+    
+    try:
+        await safe_download_document(doc, tmp_pdf)
+    except Exception as e:
+        logger.error(f"Master PDF download failed: {e}")
+        return await msg.edit_text(f"❌ Failed to download file due to SSL/Network error. Please try sending it again.")
 
     await msg.edit_text("🔍 Extracting Questions, Tables & Images… (This may take a minute)")
 
@@ -5064,7 +5084,10 @@ async def backup_users_to_json():
             logger.error(f"Failed to backup users to JSON: {e}")
 
 async def save_user(user):
-    """Saves or updates user info in SQLite, then backs up to JSON."""
+    """Saves or updates user info in SQLite safely."""
+    if not user:
+        return  # 🛡️ Safe check: ignore if user object is missing
+        
     async with aiosqlite.connect(DB_FILE) as db:
         full_name = f"{user.first_name or ''} {user.last_name or ''}".strip() or "N/A"
         username = f"@{user.username}" if user.username else "None"
@@ -6982,13 +7005,26 @@ async def send_to_user_command(update: Update, context: ContextTypes.DEFAULT_TYP
 
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Show help. Admin commands visible ONLY to admins."""
+    """Show help. Automatically chunks long messages to never exceed Telegram limits."""
     user = update.effective_user
-    await save_user(user)
+    if user:
+        await save_user(user)
 
-    is_admin = user.id in ADMIN_IDS
+    is_admin = user and user.id in ADMIN_IDS
 
-    # ─────────────── MESSAGE 1: USER SECTION ───────────────
+    # Helper function to auto-chunk text safely under 3900 chars (prevents "Message is too long" errors)
+    async def send_safe_chunks(text: str):
+        max_len = 3900
+        while len(text) > max_len:
+            split_idx = text.rfind('\n', 0, max_len)
+            if split_idx == -1:
+                split_idx = max_len
+            await update.message.reply_text(text[:split_idx], parse_mode="Markdown", disable_web_page_preview=True)
+            text = text[split_idx:].lstrip()
+        if text:
+            await update.message.reply_text(text, parse_mode="Markdown", disable_web_page_preview=True)
+
+    # 1. User Help Section
     user_text = (
         "📖 *Exam Score Evaluator Bot — Help*\n"
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
@@ -7017,53 +7053,44 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"• Max {MAX_SUBMISSIONS_PER_HOUR} links per hour\n"
         f"• Same link blocked for 10 minutes after submit\n"
         "• Admins are not limited\n\n"
-
         "🏛 *Supported Exams:*\n"
         "• SSC: CGL, CHSL, MTS, JE, CPO, GD, Steno, JHT, Selection Post\n"
         "• RRB, GATE, Coal India, AP Vidyut, BEL, and more\n"
         "• Auto-detected from the URL — just paste it\n\n"
-
         "🆘 *Troubleshooting:*\n"
         "• Scorecard failed? Try again after 10 min\n"
         "• Mock test missing? Check your DM — it arrives separately\n"
         "• GATE Key missing? Upload the official PDF when asked\n"
         "• Wrong score? Use /feedback with the sheet link\n"
     )
+    await send_safe_chunks(user_text)
 
-    # Send User Help
-    await update.message.reply_text(user_text, parse_mode="Markdown", disable_web_page_preview=True)
-
-    # ─────────────── MESSAGE 2: ADMIN SECTION ───────────────
+    # 2. Admin Section (Combines all admin info safely and auto-chunks if it grows too large)
     if is_admin:
         admin_text = (
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
             "🛠️ *ADMIN COMMANDS*\n"
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n"
-
             "*0. `/stats` — quick bot health snapshot*\n"
             "```\n/stats\n```\n"
             "• Users, sheets, today/7-day submissions\n"
             "• Top 5 exams + top 5 scores\n\n"
-
             "*1. `/userslist` — Download All Active Users*\n"
             "```\n/userslist\n```\n"
             "• Sends a `.txt` file with all active User IDs, Names, Usernames, and Join Dates\n"
             "• Automatically cleans out blocked users\n\n"
-
             "*2. `/add_admin` & `/remove_admin` — Manage Admins*\n"
             "```\n/add_admin <user_id> [days]    → add (empty days = permanent)\n"
             "/add_admin [days]              → (as reply to a user)\n"
             "/remove_admin <user_id>        → remove an admin\n"
             "/list_admins                   → list all active admins\n```\n"
             "• Super Admin cannot be removed.\n\n"
-
             "*3. `/broadcast` — message ALL users*\n"
             "```\n/broadcast <text>              → text to every user\n"
             "/broadcast (as reply to file)  → copy that file to every user\n```\n"
             "• Works with text, PDF, image, video, any file\n"
             "• Auto-handles Telegram rate-limits (pauses & retries)\n"
             "• 🚨 *Auto-removes blocked users and logs them to your channel.*\n\n"
-
             "*4. `/broadcast_exam` — message users of ONE exam*\n"
             "```\n/broadcast_exam <keyword> <text>\n"
             "/broadcast_exam <keyword> (as reply to file)\n```\n"
@@ -7072,7 +7099,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "/broadcast_exam RRB  (reply to a PDF)\n```\n"
             "• Sends only to users who submitted that exam\n"
             "• Keyword is a case-insensitive substring match\n\n"
-
             "*5. `/send` — message ONE target*\n"
             "```\n/send <chat_id> [topic_id] <text>\n"
             "/send <chat_id> [topic_id]   (as reply to any file)\n```\n"
@@ -7080,11 +7106,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "• User ID → `1001653060`\n"
             "• Public channel → `@kranthikumargoudEEE`\n"
             "• Private channel/group → `-1001234567890`\n\n"
-            "*Examples:*\n"
-            "```\n/send 1001653060 Hello Mahesh\n"
-            "/send @kranthikumargoudEEE New test uploaded!\n"
-            "/send -1004468515115 (reply to a PDF)\n```\n\n"
-
             "*6. `/gatekey` — GATE PDF Key Management*\n"
             "```\n/gatekey list                  → View all saved keys\n"
             "/gatekey view <uid>            → View answers for a shift\n"
@@ -7093,82 +7114,37 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "• *How to manually upload a key:*\n"
             "  1. Send the Answer Key PDF to the bot.\n"
             "  2. **Reply** to that PDF with:\n"
-            "     `/gatekey upload <uid>`\n"
-            "• *What is a <uid>?*\n"
-            "  It's the exact Subject + Date + Time format the bot uses.\n"
-            "  Example: `EE_ELECTRICAL_ENGINEERING_11_02_2024_2_30_PM_-_5_30_PM`\n"
-            "  *(You can see this UID in your terminal logs when the bot asks for a key).*\n"
-            "• Use this to pre-load keys so users don't have to upload the PDF!\n\n"
-
-            "*7. `/master_list` & `/regen_master` — Manage Master Files*\n"
+            "     `/gatekey upload <uid>`\n\n"
+            "*7. `/PT` — Master PDF Test Generator*\n"
+            "```\n/PT (reply to Master PDF)      → Compile PDF into locked test\n```\n"
+            "• Automatically extracts questions and answers from a Master shift PDF[cite: 1].\n\n"
+            "*8. `/master_list` & `/regen_master` — Manage Master Files*\n"
             "```\n/master_list\n/regen_master <relative_path>\n/clean_master_folders\n```\n"
             "• View saved Master PDFs, Test HTMLs, and Raw Sheets\n\n"
-
-            "*7b. `/regen_from_json` — Rebuild test from JSON*\n"
+            "*8b. `/regen_from_json` — Rebuild test from JSON*\n"
             "```\n/regen_from_json                → list all saved JSONs\n"
             "/regen_from_json <relative>     → regenerate mock test\n```\n"
-            "• Use to rebuild a test after editing <code>solution</code> fields in JSON\n"
-            "• SMALL JSON = editable · FULL JSON = complete archive\n"
-            "• Same output from either variant\n\n"
-
-            "*8. `/sendlogs` — fetch bot.log*\n"
-            "```\n/sendlogs\n```\n"
-            "• Uploads `bot.log` to every copy target\n\n"
-
-            "*9. `/queue` — see pending retry queue*\n"
-            "```\n/queue\n```\n"
-            "• Lists every file waiting in the retry queue\n"
-            "• Per-row: `chat_id`, filename, retry count, next attempt, last error\n"
-            "• If empty → everything has been delivered ✅\n\n"
-
-            "*🔁 Retry System (automatic — no action needed):*\n"
-            "• Failed deliveries saved to DB and retried on their own\n"
-            "• Backoff per row: *2min → 8min → 32min → 2h → 6h (cap)*\n"
-            "• Same file+chat+action queued only *once per hour* (dedup)\n"
-            "• Circuit breaker: *5 consecutive failures → pause 5 min* (stops DNS-timeout spam)\n"
-            "• Every event logged to `failure_reports` table forever\n"
-            "• Hourly health digest auto-sent → shows **DNS status** + queue depth\n\n"
-
-            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-            "⚙️ *AUTO COPY (silent — users never see it)*\n"
-            "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-            "On every user submission, the bot *automatically* copies to:\n"
-            "• Every ID in `ADMIN_IDS` (admin DMs)\n"
-            "• Every ID in `ADMIN_COPY_CHAT_IDS` (channels/groups)\n"
-            "• All uploaded user documents are forwarded to Log Channels\n\n"
-
-            "📊 *Live Status:*\n"
-            f"• Rate limit: {MAX_SUBMISSIONS_PER_HOUR}/hour\n"
-            f"• Duplicate window: 10 min\n"
-            f"• Copy channels: {len(ADMIN_COPY_CHAT_IDS)}\n"
-            f"• Copy targets: {', '.join(ADMIN_COPY_CHAT_IDS) if ADMIN_COPY_CHAT_IDS else 'None'}\n"
-            f"• Queue depth: `/queue` for details\n\n"
-        )
-
-        # Handle the dynamic admin list if it's short
-        if not ADMIN_COPY_CHAT_IDS:
-            admin_text += "• ⚠️ `ADMIN_COPY_CHAT_IDS` is empty — copies go to ADMIN_IDS DMs only\n"
-        else:
-            for entry in ADMIN_COPY_CHAT_IDS:
-                admin_text += f"• `{entry}`\n"
-
-        admin_text += (
-            f"\n*Admin DM targets:*\n"
-            f"• `{ADMIN_IDS}`\n\n"
-
+            "• Use to rebuild a test after editing `solution` fields in JSON\n\n"
+            "*9. `/sendlogs` — fetch bot.log*\n"
+            "```\n/sendlogs\n```\n\n"
+            "*10. `/queue` — see pending retry queue*\n"
+            "```\n/queue\n```\n\n"
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
             "📊 *SYSTEM STATUS*\n"
             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
             f"• Master watermark → {'✅ ON' if ADD_WATERMARK_TO_MASTER else '❌ OFF'}\n"
             f"• Mock test to user → {'✅ ON' if SEND_MOCK_TEST_TO_USER else '❌ OFF'}\n"
             f"• Test password → {'🔐 set' if TEST_PASSWORD else '🔓 none'}\n"
-            f"• Test expiry → {TEST_EXPIRY_DAYS if TEST_EXPIRY_DAYS else '♾️ never'}\n\n"
+            f"• Test expiry → {TEST_EXPIRY_DAYS if TEST_EXPIRY_DAYS else '♾️ never'}\n"
         )
+        if not ADMIN_COPY_CHAT_IDS:
+            admin_text += "\n• ⚠️ `ADMIN_COPY_CHAT_IDS` is empty — copies go to ADMIN_IDS DMs only\n"
+        else:
+            admin_text += f"\n• Copy targets: {', '.join(ADMIN_COPY_CHAT_IDS)}\n"
+        
+        await send_safe_chunks(admin_text)
 
-        # Send Admin Help as a separate message
-        await update.message.reply_text(admin_text, parse_mode="Markdown", disable_web_page_preview=True)
-
-    # ─────────────── MESSAGE 3: FOOTER ───────────────
+    # 3. Footer Section
     footer_text = (
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
         "📢 *Join us:*\n"
@@ -7176,8 +7152,6 @@ async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"👉 [WhatsApp Channel]({CHANNEL_LINK1})\n"
         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     )
-    
-    # Send Footer as a separate message
     await update.message.reply_text(footer_text, parse_mode="Markdown", disable_web_page_preview=True)
 
 
@@ -7616,14 +7590,23 @@ async def _on_startup(app):
 
 async def handle_gate_pdf_upload(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handles the GATE Answer Key upload or /PT Master PDF upload."""
+    if not update.message:
+        return
+
     caption = (update.message.caption or "").strip()
     if "/PT" in caption or "/pt" in caption or context.user_data.get('awaiting_pt_pdf'):
         context.user_data['awaiting_pt_pdf'] = False
         return await pt_command(update, context)
 
     user = update.effective_user
+    if not user:
+        return
+
     user_id = user.id
-    # ... (rest of your existing gate upload code)
+    
+    # 🌟 FIX: Define 'step' so it doesn't crash on validation below
+    step = context.user_data.get('gate_upload_step')
+
     # 🌟 Forward GATE PDF to Log Channel with Link & User Details as a SINGLE message
     if SEND_COPY_TO_ADMIN:
         gate_source_url = context.user_data.get('gate_source_url', 'N/A')
@@ -7660,6 +7643,7 @@ async def handle_gate_pdf_upload(update: Update, context: ContextTypes.DEFAULT_T
                 await asyncio.sleep(0.5)
             except Exception as e:
                 logger.warning(f"Failed to forward GATE PDF to {target_chat}: {e}")
+
     if step != 'key':
         await update.message.reply_text(
             "⚠️ *PDF received, but no active GATE key-upload session.*\n\n"
@@ -7833,9 +7817,7 @@ async def gatekey_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 
-# ==============================================================================
-# 🆕 MASTER PDF TO BOT INTERACTIVE TEST HTML (/PT COMMAND)
-# ==============================================================================
+
 # ==============================================================================
 # 🆕 MASTER PDF TO BOT INTERACTIVE TEST HTML (/PT COMMAND) - INTERACTIVE & LOGGED
 # ==============================================================================
@@ -7879,18 +7861,8 @@ async def pt_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     parse_mode="HTML"
                 )
             local_pdf_path = matched_path
-        elif pdf_files and not query:
-            # Set state to wait for PDF upload, or let them pick from local
-            context.user_data['awaiting_pt_pdf'] = True
-            text = (
-                "📥 <b>Send Master PDF for Interactive Test</b>\n\n"
-                "Please upload or send your Master Exam PDF now, or reply to this message with the PDF file.\n\n"
-                "<i>Alternatively, you can process a cached local file using:</i>\n"
-            )
-            for rel_p, _ in pdf_files[-8:]:
-                text += f"• <code>/PT {html.escape(rel_p)}</code>\n"
-            return await update.message.reply_text(text, parse_mode="HTML")
         else:
+            # Set state to wait for PDF upload
             context.user_data['awaiting_pt_pdf'] = True
             return await update.message.reply_text(
                 "📥 <b>Send Master PDF for Interactive Test</b>\n\n"
@@ -7957,15 +7929,41 @@ async def pt_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             full_text += doc_pdf[pno].get_text() + "\n"
         doc_pdf.close()
 
-        exam_name_m = re.search(r"Question\s*Paper\s*Name\s*[:\-]\s*(.+)", full_text, re.I)
-        subject_m = re.search(r"Subject\s*Name\s*[:\-]\s*(.+)", full_text, re.I)
-        date_m = re.search(r"Creation\s*Date\s*[:\-]\s*(.+)", full_text, re.I)
-        duration_m = re.search(r"Duration\s*[:\-]\s*(\d+)", full_text, re.I)
+        # 🌟 BULLETPROOF METADATA EXTRACTOR (Handles inline, multi-line, timestamps & time ranges)
+        def extract_field(pattern, text):
+            m = re.search(pattern + r"\s*[:\-]\s*([^\n\r]+)", text, re.I)
+            if m and m.group(1).strip():
+                return m.group(1).strip()
+            m_multi = re.search(pattern + r"\s*[:\-]\s*\n\s*([^\n\r]+)", text, re.I)
+            if m_multi and m_multi.group(1).strip():
+                return m_multi.group(1).strip()
+            return ""
 
-        exam_name = exam_name_m.group(1).strip() if exam_name_m else os.path.basename(local_pdf_path).rsplit(".", 1)[0]
-        subject_name = subject_m.group(1).strip() if subject_m else "General Studies and General Abilities"
-        test_date = date_m.group(1).strip() if date_m else datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        duration_mins = int(duration_m.group(1)) if duration_m else 150
+        raw_exam = extract_field(r"Question\s*Paper\s*Name", full_text) or os.path.basename(local_pdf_path).rsplit(".", 1)[0]
+        raw_subj = extract_field(r"Subject\s*Name", full_text) or "General Studies and General Abilities"
+        full_date_str = extract_field(r"Creation\s*Date", full_text) or datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        raw_duration = extract_field(r"Duration", full_text) or "150"
+
+        # 🧹 Clean up artifacts like "ACTUAL" or "JARDIN"
+        exam_name = re.sub(r"^\bACTUAL\b\s*", "", raw_exam, flags=re.I).strip()
+        exam_name = re.sub(r"\s+JARDIN\b", "", exam_name, flags=re.I).strip()
+
+        subject_name = re.sub(r"^\bACTUAL\b\s*", "", raw_subj, flags=re.I).strip()
+        subject_name = re.sub(r"\s+JARDIN\b", "", subject_name, flags=re.I).strip()
+
+        # 🌟 Smart Date & Time Splitter (Handles "YYYY-MM-DD HH:MM:SS" AND "Date + Time Range")
+        if " " in full_date_str and any(char.isdigit() for char in full_date_str.split(" ")[0]):
+            parts = full_date_str.split(" ", 1)
+            test_date = parts[0]
+            test_time = parts[1]
+        else:
+            test_date = full_date_str
+            test_time = raw_duration
+
+        duration_mins = 150
+        dur_match = re.search(r"\d+", raw_duration)
+        if dur_match:
+            duration_mins = int(dur_match.group(0))
 
         # 2. Import and run process_master_pdf with timeout protection
         try:
@@ -8123,7 +8121,7 @@ async def pt_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
             try:
                 os.remove(out_html_path)
             except Exception:
-                pass  
+                pass
 
 # ==============================================================================
 # 10. ENTRY POINT
