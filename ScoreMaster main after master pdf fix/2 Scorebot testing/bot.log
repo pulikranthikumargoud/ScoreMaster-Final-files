@@ -1,0 +1,374 @@
+2026-11-13 22:02:29,728 - __main__ - INFO - CWD                 = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing
+2026-11-13 22:02:29,729 - __main__ - INFO - MASTER_ROOT_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\master_files
+2026-11-13 22:02:29,730 - __main__ - INFO - TEST_STORAGE_DIR    = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\generated_tests
+2026-11-13 22:02:29,731 - __main__ - INFO - PDF_STORAGE_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\downloaded_pdfs
+2026-11-13 22:02:29,731 - __main__ - INFO - SCORECARD_IMG_DIR   = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\scorecard_images
+2026-11-13 22:02:29,750 - __main__ - INFO - ✅ Added column pending_deliveries.retry_count
+2026-11-13 22:02:29,752 - __main__ - INFO - ✅ Added column pending_deliveries.last_attempt_at
+2026-11-13 22:02:29,753 - __main__ - INFO - ✅ Added column pending_deliveries.next_retry_at
+2026-11-13 22:02:29,754 - __main__ - INFO - ✅ Added column pending_deliveries.last_error
+2026-11-13 22:02:29,761 - __main__ - INFO - Database initialized successfully.
+2026-11-13 22:02:30,784 - __main__ - INFO - Bot started successfully (concurrent updates ENABLED).
+2026-11-13 22:02:44,707 - __main__ - INFO - Loaded 1 active admins.
+2026-11-13 22:02:45,098 - __main__ - WARNING - Peer prime failed for -1004468515115: Chat not found
+2026-11-13 22:02:45,464 - __main__ - WARNING - Startup notify failed → -1004468515115: Chat not found
+2026-11-13 22:02:45,465 - __main__ - INFO - ✅ Background tasks started (backup + retry + health digest).
+2026-11-13 22:02:45,477 - __main__ - INFO - ✅ Hourly DB backup: backup_hourly_20261113_220245.db
+2026-11-13 22:02:45,644 - telegram.ext.Application - INFO - Application started
+2026-11-13 22:04:04,376 - __main__ - ERROR - Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_application.py", line 1315, in process_update
+    await coroutine
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_handlers\basehandler.py", line 159, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py", line 5129, in handle_response
+    await save_user(user)  # 🌟 Track the user
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py", line 4895, in save_user
+    full_name = f"{user.first_name or ''} {user.last_name or ''}".strip() or "N/A"
+                   ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'first_name'
+2026-11-13 22:04:28,453 - __main__ - INFO - Parsing HTML (pre-embed) | len=529900
+2026-11-13 22:04:28,543 - __main__ - INFO - 🖼️ Header filter: kept 1 banners, filtered 2 non-banner images
+2026-11-13 22:04:37,551 - __main__ - INFO - ⚡ Scorecard delivered to user in 5.1s
+2026-11-13 22:04:40,439 - __main__ - INFO - ⏩ Skipping individual PDF generation (SAVE_INDIVIDUAL_PDF = False)
+2026-11-13 22:04:40,440 - __main__ - INFO - 🌟 Generating NEW Master PDF: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-13 22:04:41,428 - __main__ - INFO - Test data extracted: 75 questions (ssc=False)
+2026-11-13 22:04:41,432 - __main__ - INFO - Test images embedded
+2026-11-13 22:04:44,066 - __main__ - INFO - 📦 Master JSON saved: master_files\master_json\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.json (0.2 MB)
+2026-11-13 22:04:47,124 - __main__ - INFO - 🌟 Master Test HTML ALWAYS saved to laptop: master_files\master_tests\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.html
+2026-11-13 22:04:48,656 - __main__ - INFO - ✅ PDF saved: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-13 22:04:48,657 - __main__ - INFO - ✅ Master PDF saved: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-13 22:04:51,356 - __main__ - INFO - ✅ Test HTML sent successfully: generated_tests\MockTest_RRB_ALP_2026_CBT_1_03_11_2026_12_30_PM_-_1_30_PM_RRB_ALP_2026_CBT_1_28126428237792.html
+2026-11-13 22:04:51,357 - __main__ - INFO - 🌟 Sending Master Test HTML to Admin Channel
+2026-11-13 22:08:01,931 - __main__ - ERROR - Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_application.py", line 1315, in process_update
+    await coroutine
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_handlers\basehandler.py", line 159, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py", line 5129, in handle_response
+    await save_user(user)  # 🌟 Track the user
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py", line 4895, in save_user
+    full_name = f"{user.first_name or ''} {user.last_name or ''}".strip() or "N/A"
+                   ^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'first_name'
+2026-11-13 22:29:05,977 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<hourly_health_digest() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:629> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-13 22:29:05,979 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<periodic_backup() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:874> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-13 22:29:05,980 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<retry_failed_deliveries() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:497> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-13 22:29:09,586 - __main__ - INFO - CWD                 = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing
+2026-11-13 22:29:09,586 - __main__ - INFO - MASTER_ROOT_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\master_files
+2026-11-13 22:29:09,587 - __main__ - INFO - TEST_STORAGE_DIR    = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\generated_tests
+2026-11-13 22:29:09,587 - __main__ - INFO - PDF_STORAGE_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\downloaded_pdfs
+2026-11-13 22:29:09,587 - __main__ - INFO - SCORECARD_IMG_DIR   = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\scorecard_images
+2026-11-13 22:29:09,601 - __main__ - INFO - Database initialized successfully.
+2026-11-13 22:29:10,196 - __main__ - INFO - Bot started successfully (concurrent updates ENABLED).
+2026-11-13 22:29:21,298 - __main__ - INFO - Loaded 1 active admins.
+2026-11-13 22:29:22,181 - __main__ - INFO - ✅ Peer primed: -1004468515115
+2026-11-13 22:29:23,649 - __main__ - INFO - ✅ Background tasks started (backup + retry + health digest).
+2026-11-13 22:29:23,663 - __main__ - INFO - ✅ Hourly DB backup: backup_hourly_20261113_222923.db
+2026-11-13 22:29:23,894 - telegram.ext.Application - INFO - Application started
+2026-11-13 22:29:44,043 - __main__ - INFO - Parsing HTML (pre-embed) | len=529900
+2026-11-13 22:29:44,173 - __main__ - INFO - 🖼️ Header filter: kept 1 banners, filtered 2 non-banner images
+2026-11-13 22:29:49,681 - __main__ - INFO - ⚡ Scorecard delivered to user in 3.2s
+2026-11-13 22:29:51,322 - __main__ - INFO - ⏩ Skipping individual PDF generation (SAVE_INDIVIDUAL_PDF = False)
+2026-11-13 22:29:52,174 - __main__ - INFO - Test data extracted: 75 questions (ssc=False)
+2026-11-13 22:29:52,175 - __main__ - INFO - Test images embedded
+2026-11-13 22:29:52,209 - __main__ - INFO - 📦 Master JSON saved: master_files\master_json\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.json (0.2 MB)
+2026-11-13 22:29:54,093 - __main__ - INFO - 🌟 Master Test HTML ALWAYS saved to laptop: master_files\master_tests\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.html
+2026-11-13 22:29:56,800 - __main__ - INFO - ✅ Test HTML sent successfully: generated_tests\MockTest_RRB_ALP_2026_CBT_1_03_11_2026_12_30_PM_-_1_30_PM_RRB_ALP_2026_CBT_1_28126428237792.html
+2026-11-13 22:29:56,801 - __main__ - INFO - 🌟 Sending Master Test HTML to Admin Channel
+2026-11-13 22:59:46,223 - __main__ - WARNING - Transient network error: httpx.ReadError: 
+2026-11-13 23:03:23,768 - __main__ - WARNING - Transient network error: httpx.ReadError: 
+2026-11-14 10:53:16,899 - __main__ - INFO - CWD                 = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing
+2026-11-14 10:53:16,899 - __main__ - INFO - MASTER_ROOT_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\master_files
+2026-11-14 10:53:16,899 - __main__ - INFO - TEST_STORAGE_DIR    = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\generated_tests
+2026-11-14 10:53:16,901 - __main__ - INFO - PDF_STORAGE_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\downloaded_pdfs
+2026-11-14 10:53:16,901 - __main__ - INFO - SCORECARD_IMG_DIR   = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\scorecard_images
+2026-11-14 10:53:16,934 - __main__ - INFO - Database initialized successfully.
+2026-11-14 10:53:17,785 - __main__ - INFO - Bot started successfully (concurrent updates ENABLED).
+2026-11-14 10:53:19,786 - __main__ - INFO - Loaded 1 active admins.
+2026-11-14 10:53:20,895 - __main__ - INFO - ✅ Peer primed: -1004468515115
+2026-11-14 10:53:22,735 - __main__ - INFO - ✅ Background tasks started (backup + retry + health digest).
+2026-11-14 10:53:22,755 - __main__ - INFO - ✅ Hourly DB backup: backup_hourly_20261114_105322.db
+2026-11-14 10:53:22,947 - telegram.ext.Application - INFO - Application started
+2026-11-14 10:54:32,546 - __main__ - INFO - Parsing HTML (pre-embed) | len=529900
+2026-11-14 10:54:32,911 - __main__ - INFO - 🖼️ Header filter: kept 1 banners, filtered 2 non-banner images
+2026-11-14 10:54:46,266 - __main__ - INFO - ⚡ Scorecard delivered to user in 8.0s
+2026-11-14 10:54:47,934 - __main__ - INFO - ⏩ Skipping individual PDF generation (SAVE_INDIVIDUAL_PDF = False)
+2026-11-14 10:54:47,936 - __main__ - INFO - 🌟 Generating NEW Master PDF: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-14 10:54:49,490 - __main__ - INFO - Test data extracted: 75 questions (ssc=False)
+2026-11-14 10:54:49,493 - __main__ - INFO - Test images embedded
+2026-11-14 10:54:51,188 - __main__ - INFO - 📦 Master JSON (small) saved: master_files\master_json\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.json (0.22 MB)
+2026-11-14 10:54:53,351 - __main__ - INFO - ✅ PDF saved: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-14 10:54:53,353 - __main__ - INFO - ✅ Master PDF saved: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-14 10:54:54,468 - __main__ - INFO - 📦 Master JSON (FULL) saved: master_files\master_json\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM_full.json (0.72 MB)
+2026-11-14 10:54:59,580 - __main__ - INFO - ✅ Full JSON sent → -1004468515115
+2026-11-14 10:55:00,080 - __main__ - INFO - 🌟 Master Test HTML ALWAYS saved to laptop: master_files\master_tests\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.html
+2026-11-14 10:55:03,270 - __main__ - INFO - ✅ Test HTML sent successfully: generated_tests\MockTest_RRB_ALP_2026_CBT_1_03_11_2026_12_30_PM_-_1_30_PM_RRB_ALP_2026_CBT_1_28126428237792.html
+2026-11-14 10:55:03,272 - __main__ - INFO - 🌟 Sending Master Test HTML to Admin Channel
+2026-11-14 11:13:22,977 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:13:23,980 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:13:25,485 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:13:27,749 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:13:31,147 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:13:36,220 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:13:43,830 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:13:55,244 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:14:12,341 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:14:37,986 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:15:08,003 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:15:38,020 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:03,545 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:04,558 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:06,065 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:08,340 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:11,708 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:16,780 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:24,393 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:35,802 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:18:52,901 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:19:18,535 - __main__ - WARNING - Transient network error: httpx.ConnectError: [Errno 11001] getaddrinfo failed
+2026-11-14 11:39:37,976 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-11-14 11:39:37,977 - telegram.ext.Application - INFO - Application.stop() complete
+2026-11-14 11:39:38,067 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<hourly_health_digest() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:638> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-14 11:39:38,069 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<periodic_backup() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:889> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-14 11:39:38,069 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<retry_failed_deliveries() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:506> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-14 11:39:42,067 - __main__ - INFO - CWD                 = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing
+2026-11-14 11:39:42,068 - __main__ - INFO - MASTER_ROOT_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\master_files
+2026-11-14 11:39:42,068 - __main__ - INFO - TEST_STORAGE_DIR    = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\generated_tests
+2026-11-14 11:39:42,069 - __main__ - INFO - PDF_STORAGE_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\downloaded_pdfs
+2026-11-14 11:39:42,069 - __main__ - INFO - SCORECARD_IMG_DIR   = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\scorecard_images
+2026-11-14 11:39:42,084 - __main__ - INFO - Database initialized successfully.
+2026-11-14 11:39:42,704 - __main__ - INFO - Bot started successfully (concurrent updates ENABLED).
+2026-11-14 11:39:43,311 - __main__ - INFO - Loaded 1 active admins.
+2026-11-14 11:39:44,166 - __main__ - INFO - ✅ Peer primed: -1004468515115
+2026-11-14 11:39:45,698 - __main__ - INFO - ✅ Background tasks started (backup + retry + health digest).
+2026-11-14 11:39:45,713 - __main__ - INFO - ✅ Hourly DB backup: backup_hourly_20261114_113945.db
+2026-11-14 11:39:45,897 - telegram.ext.Application - INFO - Application started
+2026-11-14 11:40:05,518 - __main__ - INFO - Parsing HTML (pre-embed) | len=529900
+2026-11-14 11:40:05,623 - __main__ - INFO - 🖼️ Header filter: kept 1 banners, filtered 2 non-banner images
+2026-11-14 11:40:11,814 - __main__ - INFO - ⚡ Scorecard delivered to user in 3.4s
+2026-11-14 11:40:12,983 - __main__ - INFO - ⏩ Skipping individual PDF generation (SAVE_INDIVIDUAL_PDF = False)
+2026-11-14 11:40:12,984 - __main__ - INFO - 🌟 Generating NEW Master PDF: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-14 11:40:13,905 - __main__ - INFO - Test data extracted: 75 questions (ssc=False)
+2026-11-14 11:40:13,906 - __main__ - INFO - Test images embedded
+2026-11-14 11:40:14,535 - __main__ - INFO - 📦 Master JSON (small) saved: master_files\master_json\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.json (0.22 MB)
+2026-11-14 11:40:16,795 - __main__ - INFO - ✅ PDF saved: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-14 11:40:16,798 - __main__ - INFO - ✅ Master PDF saved: master_files\master_pdfs\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.pdf
+2026-11-14 11:40:17,329 - __main__ - INFO - 📦 Master JSON (FULL) saved: master_files\master_json\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM_full.json (0.74 MB)
+2026-11-14 11:40:21,839 - __main__ - INFO - ✅ Full JSON sent → -1004468515115
+2026-11-14 11:40:22,314 - __main__ - INFO - 🌟 Master Test HTML ALWAYS saved to laptop: master_files\master_tests\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.html
+2026-11-14 11:40:25,139 - __main__ - INFO - ✅ Test HTML sent successfully: generated_tests\MockTest_RRB_ALP_2026_CBT_1_03_11_2026_12_30_PM_-_1_30_PM_RRB_ALP_2026_CBT_1_28126428237792.html
+2026-11-14 11:40:25,140 - __main__ - INFO - 🌟 Sending Master Test HTML to Admin Channel
+2026-11-14 12:01:36,439 - __main__ - INFO - ♻️ Regenerated from JSON: master_files\master_tests\RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.html (4 solutions)
+2026-11-14 12:39:45,730 - __main__ - INFO - ✅ Hourly DB backup: backup_hourly_20261114_123945.db
+2026-11-14 12:41:46,541 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<retry_failed_deliveries() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:506> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-14 12:41:46,543 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<hourly_health_digest() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:638> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-14 12:41:46,543 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<periodic_backup() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:889> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-16 20:47:53,915 - __main__ - INFO - CWD                 = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing
+2026-11-16 20:47:53,916 - __main__ - INFO - MASTER_ROOT_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\master_files
+2026-11-16 20:47:53,916 - __main__ - INFO - TEST_STORAGE_DIR    = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\generated_tests
+2026-11-16 20:47:53,917 - __main__ - INFO - PDF_STORAGE_DIR     = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\downloaded_pdfs
+2026-11-16 20:47:53,917 - __main__ - INFO - SCORECARD_IMG_DIR   = C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\scorecard_images
+2026-11-16 20:47:53,937 - __main__ - INFO - Database initialized successfully.
+2026-11-16 20:47:54,600 - __main__ - INFO - Bot started successfully (concurrent updates ENABLED).
+2026-11-16 20:47:55,333 - __main__ - INFO - Loaded 1 active admins.
+2026-11-16 20:47:56,354 - __main__ - INFO - ✅ Peer primed: -1004468515115
+2026-11-16 20:47:58,015 - __main__ - INFO - ✅ Background tasks started (backup + retry + health digest).
+2026-11-16 20:47:58,030 - __main__ - INFO - ✅ Hourly DB backup: backup_hourly_20261116_204758.db
+2026-11-16 20:47:58,244 - telegram.ext.Application - INFO - Application started
+2026-11-16 20:48:03,216 - __main__ - ERROR - Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-11-16 20:48:09,493 - __main__ - ERROR - Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-11-16 20:48:17,017 - __main__ - ERROR - Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-11-16 20:48:17,878 - __main__ - INFO - Parsing HTML (pre-embed) | len=647666
+2026-11-16 20:48:18,096 - __main__ - INFO - 🖼️ Header filter: kept 1 banners, filtered 2 non-banner images
+2026-11-16 20:48:22,376 - __main__ - ERROR - Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-11-16 20:48:28,589 - __main__ - INFO - ⚡ Scorecard delivered to user in 7.7s
+2026-11-16 20:48:29,568 - __main__ - INFO - ⏩ Skipping individual PDF generation (SAVE_INDIVIDUAL_PDF = False)
+2026-11-16 20:48:29,569 - __main__ - INFO - 🌟 Generating NEW Master PDF: master_files\master_pdfs\RRB_JE_DMS_CMA_CBT_I\_All\02_11_2026_9_00_AM_-_10_30_AM.pdf
+2026-11-16 20:48:30,647 - __main__ - INFO - Test data extracted: 100 questions (ssc=False)
+2026-11-16 20:48:30,648 - __main__ - INFO - Test images embedded
+2026-11-16 20:48:31,092 - __main__ - INFO - 📦 Master JSON (small) saved: master_files\master_json\RRB_JE_DMS_CMA_CBT_I\_All\02_11_2026_9_00_AM_-_10_30_AM.json (0.25 MB)
+2026-11-16 20:48:32,787 - __main__ - ERROR - Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 161, in network_retry_loop
+    await do_action()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_utils\networkloop.py", line 154, in do_action
+    action_cb_task.result()
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_updater.py", line 340, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 680, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 4767, in get_updates
+    await self._post(
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 712, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\ext\_extbot.py", line 378, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\_bot.py", line 741, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 198, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\telegram\request\_baserequest.py", line 375, in _request_wrapper
+    raise exception
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2026-11-16 20:48:33,189 - __main__ - INFO - 📦 Master JSON (FULL) saved: master_files\master_json\RRB_JE_DMS_CMA_CBT_I\_All\02_11_2026_9_00_AM_-_10_30_AM_full.json (0.88 MB)
+2026-11-16 20:48:33,610 - __main__ - ERROR - ❌ PDF generation failed for master_files\master_pdfs\RRB_JE_DMS_CMA_CBT_I\_All\02_11_2026_9_00_AM_-_10_30_AM.pdf: Page.pdf: Protocol error (Page.printToPDF): Printing failed
+Traceback (most recent call last):
+  File "C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py", line 1442, in save_sheet_as_pdf
+    pdf_bytes = await page.pdf(
+                ^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\async_api\_generated.py", line 12824, in pdf
+    await self._impl_obj.pdf(
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_page.py", line 1205, in pdf
+    encoded_binary = await self._channel.send("pdf", None, params)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\pulik\AppData\Local\Programs\Python\Python311\Lib\site-packages\playwright\_impl\_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.pdf: Protocol error (Page.printToPDF): Printing failed
+2026-11-16 20:48:33,999 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2026-11-16 20:48:34,000 - telegram.ext.Application - INFO - Application.stop() complete
+2026-11-16 20:48:34,002 - __main__ - WARNING - ❌ Full JSON send failed → -1004468515115: httpx.ReadError: 
+2026-11-16 20:48:34,091 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-9' coro=<retry_failed_deliveries() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:506> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-16 20:48:34,092 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-10' coro=<hourly_health_digest() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:638> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-16 20:48:34,092 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-8' coro=<periodic_backup() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:889> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-16 20:48:34,093 - asyncio - ERROR - Task was destroyed but it is pending!
+task: <Task pending name='Task-44' coro=<handle_response.<locals>._safe_wrap() running at C:\kranthikumar imp\A Terminal New things\ScoreBot\Scorebot testing\bot.py:6541> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+2026-11-16 20:48:34,093 - __main__ - INFO - ⏹️ Worker 'mock_test' stopped (bot shutdown)

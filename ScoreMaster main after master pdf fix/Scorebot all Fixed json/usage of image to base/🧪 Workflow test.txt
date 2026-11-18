@@ -1,0 +1,118 @@
+1. Create folder + drop images
+powershell
+mkdir solutions
+Place your files:
+
+text
+solutions/
+├── 48.png
+├── 48_1.png
+├── 48_2.png
+├── 48.txt
+├── 49.jpg
+└── 50.webp
+2. Dry run first (safe)
+powershell
+python bake_solutions.py --dry-run
+Output:
+
+text
+📂 JSON: master_files\...\03_11_2026_12_30_PM_-_1_30_PM.json  (75 questions)
+
+🖼️  Found 2 solution(s) in folder
+
+═════════════════════════════════════════════════════════════════
+✅ Injected into 2 question(s):
+   • Q48: 3 image(s) + text
+   • Q49: 1 image(s)
+
+🧪 DRY RUN — no files changed
+3. Real run (with automatic backup)
+powershell
+python bake_solutions.py
+Output:
+
+text
+✅ Injected into 2 question(s):
+   • Q48: 3 image(s) + text
+   • Q49: 1 image(s)
+
+💾 Backup: 03_11_2026_12_30_PM_-_1_30_PM.json.bak
+📄 Saved: 03_11_2026_12_30_PM_-_1_30_PM.json  (0.31 MB)
+
+🎯 Regenerate:  /regen_from_json RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.json
+4. Regenerate in Telegram
+text
+/regen_from_json RRB_ALP_2026_CBT_1\_All\03_11_2026_12_30_PM_-_1_30_PM.json
+5. Verify JSON is clean
+powershell
+python bake_solutions.py --list
+Output:
+
+text
+  Q48: 3 image(s) + text
+  Q49: 1 image(s)
+
+📊 2/75 question(s) have solutions
+Or open the JSON directly — you'll see:
+
+json
+{
+  "original_qno": "48",
+  "solution": "Cancel (3.8²+4.9²) → 3.8²−4.9² = −9.57",
+  "solution_images": [
+    "data:image/png;base64,iVBORw0KGgo...",
+    "data:image/png;base64,iVBORw0KGgo...",
+    "data:image/png;base64,iVBORw0KGgo..."
+  ],
+  ...
+}
+Clean. Readable. Maintainable.
+
+🎯 Why this is easier to maintain
+Task	Before (Method 2)	Now (Method 3)
+See how many images Q48 has	grep -o '<img' solution_field | wc -l	q.solution_images.length
+Add a 4th image	Manual JSON edit, insert <img> block	python bake_solutions.py (drops in 48_4.png)
+Remove an image	Manual JSON edit, delete <img> block	Delete 48_3.png → rerun script
+Copy a solution to another Q	Copy giant HTML blob	Copy solution string + array items
+Verify solution	Scroll through 116K chars	Read 3 array lines
+Diff between shifts	Massive one-line change	Clean field-by-field diff
+Corrupted solution image	Hard to isolate	Delete one array item
+📋 Summary
+Method 2	Method 3
+bot.py patches	0	2 (~30 lines total)
+JSON structure	<img> blob in one string	Clean text + array
+Multi-image	✅ works	✅ works (cleaner)
+Maintenance	Manual JSON surgery	Drop file → rerun script
+Reparsing preserves solution	⚠️ No (regen from JSON loses nothing, but re-scrape loses it)	✅ Yes (survives re-scrape)
+The last row is the key win. If you ever resubmit the RRB link (e.g. parser bug fix), extract_test_data() regenerates test_data from scratch — Method 2's <img> blob in solution is wiped. Method 3's solution_images field... also gets wiped by a fresh scrape.
+
+Wait — that's true for both. Neither survives a fresh scrape from the RRB URL.
+
+However: both survive /regen_from_json. That's the actual use case. And Method 3 is easier to maintain during that workflow because you can bulk-edit solutions across multiple shifts with simple scripts:
+
+python
+# Example: Add the same explanation text to all 7 Wiris formula Qs
+for p in MASTER_JSON_DIR.rglob("*.json"):
+    payload = json.loads(p.read_text())
+    for q in payload["test_data"]:
+        if q.get("original_qno") in ["12","25","27","35","48","69","72"]:
+            q["solution"] = "See the formula in the question image."
+    p.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
+That 6-line script would be a nightmare with Method 2 (regex surgery on HTML blobs). With Method 3, it's trivially safe.
+
+🚀 Bottom line
+Apply the 2 patches, replace bake_solutions.py, run it. Done.
+
+bot.py changes: ~30 lines, additive only (existing text-only solutions still work)
+
+Backup file automatically created before each write
+
+--dry-run and --list flags give you safety and visibility
+
+Rename or drop images in solutions/ → rerun script → regen in Telegram
+
+No more hand-editing base64 blobs in JSON
+
+Simple to maintain. Simple to extend. Simple to debug.
+
